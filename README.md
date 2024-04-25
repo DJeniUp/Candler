@@ -9,7 +9,6 @@ Interaction with the lanterns will take place in the form of a mini-game, where 
 ## Design
 The game will be made in 16-bit style
 ## Initial sketch of the main character
-
 ## Libraries
 libGDX
 ## Optional
