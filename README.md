@@ -13,3 +13,4 @@ libGDX
 ## Optional
 - Ability to interact with objects such as grass or other interior elements.
 - Different endings of the plot depending on the lighting of the previous areas
+- Background and objects will be animated
