@@ -1,15 +1,15 @@
-package candler.game;
+package com.mygdx.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import candler.game.Candler;
+import com.mygdx.game.MyGdxGame;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
-		config.setTitle("Candler Game");
-		new Lwjgl3Application(new Candler(), config);
+		config.setTitle("Candler");
+		new Lwjgl3Application(new MyGdxGame(), config);
 	}
 }
