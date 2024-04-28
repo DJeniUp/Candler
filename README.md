@@ -1,6 +1,6 @@
 # Candler
 ## Autors
-Daryna Karpenko(3 group), Danylo Kvit(3 group)
+Daryna Karpenko(3 group), Danylo Kvit(3 group), Oleksandr Tymkovych(3 group)
 ## Idea
 Candler is a small story art-game in which you will be told a story about a traveler who lights all the lanterns on his way.
 ## Game
