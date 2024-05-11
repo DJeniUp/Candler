@@ -21,7 +21,7 @@ import games.rednblack.editor.renderer.SceneLoader;
 import games.rednblack.editor.renderer.resources.AsyncResourceManager;
 import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
