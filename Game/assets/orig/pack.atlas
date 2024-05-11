@@ -1,0 +1,17 @@
+pack.png
+	size: 1024, 512
+	filter: Linear, Linear
+Untitled 04-19-2024 09-29-06
+	index: 0
+	bounds: 1, 69, 256, 256
+Untitled 04-19-2024 09-29-06
+	index: 1
+	bounds: 259, 69, 256, 256
+grass
+	bounds: 1, 35, 32, 32
+grass_and_road
+	bounds: 517, 293, 32, 32
+road_and_grass
+	bounds: 1, 1, 32, 32
+white-pixel
+	bounds: 35, 66, 1, 1

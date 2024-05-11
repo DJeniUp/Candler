@@ -5,33 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2e1341-ee6a-4d7b-a62e-c0ce03c59431" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Game/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/assets/badlogic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/core/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/core/src/com/mygdx/game/MyGdxGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/desktop/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/desktop/src/com/mygdx/game/DesktopLauncher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/assets/libgdx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/assets/orig/pack.atlas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/assets/orig/pack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/assets/project.dt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/assets/scenes/MainScene.dt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/core/src/main/java/com/libgdx/candler/Candler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/icons/logo.icns" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/icons/logo.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/icons/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/nativeimage.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/java/com/libgdx/candler/lwjgl3/Lwjgl3Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/java/com/libgdx/candler/lwjgl3/StartupHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/resources/libgdx128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/resources/libgdx16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/resources/libgdx32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/lwjgl3/src/main/resources/libgdx64.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/badlogic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/com/mygdx/game/DesktopLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Game/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/assets/badlogic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Game/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Game/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/core/src/com/mygdx/game/MyGdxGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/core/src/com/mygdx/game/Screens/PlayScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/desktop/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/desktop/src/com/mygdx/game/DesktopLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Game/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Game/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Game/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Game/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,21 +118,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Candler" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Candler" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -150,6 +141,8 @@
       <workItem from="1714329449795" duration="87000" />
       <workItem from="1714329555288" duration="34000" />
       <workItem from="1714329957755" duration="2088000" />
+      <workItem from="1715261030558" duration="620000" />
+      <workItem from="1715262442610" duration="49000" />
     </task>
     <servers />
   </component>
