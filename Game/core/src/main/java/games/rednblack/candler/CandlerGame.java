@@ -84,8 +84,8 @@ public class CandlerGame extends ApplicationAdapter implements InputProcessor {
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
         ItemWrapper player = root.getChild("Player");
         PlayerScript playerScript = new PlayerScript();
-        player.addScript(playerScript);
-        cameraSystem.setFocus(player.getEntity());
+//        player.addScript(playerScript);
+//        cameraSystem.setFocus(player.getEntity());
     }
 
 
@@ -111,7 +111,11 @@ public class CandlerGame extends ApplicationAdapter implements InputProcessor {
 
             //Highlight characters which have been typed
             if (i < toTypeSentence.getHighlightedCharacters()) {
-                font.setColor(Color.WHITE);
+                if(typedSentence.charAt(i)==toTypeSentence.getText().charAt(i)){
+                    font.setColor(Color.WHITE);
+                }else{
+                    font.setColor(Color.RED);
+                }
                 c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
                 font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
                 continue;
@@ -152,14 +156,24 @@ public class CandlerGame extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean keyUp(int i) {
+        if(i==Input.Keys.BACKSPACE && !typedSentence.isEmpty()){
+            typedSentence = typedSentence.substring(0,typedSentence.length()-1);
+            toTypeSentence.setHighlightedCharacters(toTypeSentence.getHighlightedCharacters()-1);
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean keyTyped(char character) {
+        if(character=='\b'){
+            //hold backspace case
+            return false;
+        }
         typedSentence = typedSentence.concat(String.valueOf(character));
         if(typedSentence.endsWith(toTypeSentence.toString())){
             toTypeSentence = new Sentence(sentenceStorage.get(++sentenceStorageIndex), toTypeSentence.getColumn());
+            typedSentence="";
         }else{
             highlightConsecutive(toTypeSentence);
         }
@@ -168,16 +182,7 @@ public class CandlerGame extends ApplicationAdapter implements InputProcessor {
 
     private void highlightConsecutive(Sentence sentence) {
         if (StringUtils.isNotBlank(typedSentence)) {
-            String text = sentence.getText();
-            int matching = 0;
-            int maxIndex = Math.min(text.length(), typedSentence.length());
-
-            for (int i = 1; i < maxIndex + 1; i++) {
-                if (typedSentence.endsWith(text.substring(0, i))) {
-                    matching = i;
-                }
-            }
-            sentence.setHighlightedCharacters(matching);
+            sentence.setHighlightedCharacters(typedSentence.length());
         }
     }
 
