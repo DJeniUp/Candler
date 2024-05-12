@@ -33,10 +33,11 @@ public class CandlerGame extends ApplicationAdapter{
     SentenceMechanic mSentenceMechanic=new SentenceMechanic();
 
     private TextureAtlas atlas;
-    Candler candle=null;
+    Candler candler=null;
     @Override
     public void create(){
-//        atlas=new TextureAtlas(Utils.getInternalPath("Game/assets/orig/pack.atlas"));
+        atlas=new TextureAtlas(Gdx.files.internal("Game/assets/orig/pack.atlas"));
+        candler = new Candler(atlas);
 
         mSentenceMechanic.create();
 
