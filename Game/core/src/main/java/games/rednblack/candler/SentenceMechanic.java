@@ -20,8 +20,8 @@ public class SentenceMechanic implements InputProcessor {
     public Sentence toTypeSentence;
     private int sentenceStorageIndex;
 
-    public void create(){
-        batch = new SpriteBatch();
+    public void create(SpriteBatch batch){
+        this.batch = batch;
         font = new BitmapFont();
         sentenceStorage.addAll(SentenceLoader.loadSentencesFromCSV());
         toTypeSentence =new Sentence(sentenceStorage.get(0),1);

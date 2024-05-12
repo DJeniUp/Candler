@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -18,6 +19,7 @@ import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class CandlerGame extends ApplicationAdapter {
+    SpriteBatch batch;
     private AssetManager mAssetManager;
 
     private SceneLoader mSceneLoader;
@@ -36,10 +38,11 @@ public class CandlerGame extends ApplicationAdapter {
     Candler candler=null;
     @Override
     public void create(){
-        atlas=new TextureAtlas(Gdx.files.internal("Game/assets/orig/pack.atlas"));
-        candler = new Candler(atlas);
+//        atlas=new TextureAtlas(Gdx.files.internal("Game/assets/orig/pack.atlas"));
+//        candler = new Candler(atlas);
+        batch = new SpriteBatch();
 
-        mSentenceMechanic.create();
+        mSentenceMechanic.create(batch);
 
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
@@ -90,6 +93,7 @@ public class CandlerGame extends ApplicationAdapter {
 
     @Override
     public void dispose() {
+        batch.dispose();
         mSentenceMechanic.dispose();
         mAssetManager.dispose();
         mSceneLoader.dispose();
