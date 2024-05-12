@@ -26,9 +26,13 @@ import org.apache.commons.lang3.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+
+import static com.badlogic.gdx.math.MathUtils.random;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -46,20 +50,20 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
     private ExtendViewport mHUDViewport;
 
     private static final List<String> possibleWords = new ArrayList<>();
+    final Random random = new Random();
     SpriteBatch batch;
     private BitmapFont font;
     private List<Word> words;
     private String currentWord;
-    private int position;
 
-    public static ArrayList<String> loadWordsFromCSV(){
+    private static ArrayList<String> loadWordsFromCSV() {
         ArrayList<String> words = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("assets/words.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] columns = line.split(",");
-                String word = StringUtils.trim(columns[0]);
+                String word = StringUtils.trim(columns[0]).toLowerCase();
                 words.add(word);
 
             }
@@ -72,21 +76,23 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public void create(){
-        position=0;
         batch = new SpriteBatch();
         font = new BitmapFont();
         words = new ArrayList<>();
-        words= Collections.synchronizedList(words);
+        words = Collections.synchronizedList(words);
         possibleWords.addAll(loadWordsFromCSV());
         currentWord = "";
         Gdx.input.setInputProcessor(this);
+
         font.getData().scaleX = 2;
         font.getData().scaleY = 2;
+
+        //fill words on the screen
         for (int i = 0; i < 5; i++) {
-            addWord(possibleWords.get(position++),i);
+            addWord(possibleWords.get(random.nextInt(possibleWords.size())), i);
         }
         for (Word word : words) {
-            word.setText(word.getText().trim());
+            word.setText(word.getText().trim().toLowerCase());
         }
 
         mAssetManager = new AssetManager();
@@ -120,23 +126,31 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
         mEngine.process();
 
 
-        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        for(int w=0;w< words.size();w++){
+        for (int w = 0; w < words.size(); w++) {
+
             Word word = words.get(w);
             font.setFixedWidthGlyphs(word.toString());
-            float currentX=word.getPosition().x;
-            for(int i=0;i<word.getText().length();i++){
+            float currentX = word.getPosition().x;
+
+            for (int i = 0; i < word.getText().length(); i++) {
                 GlyphLayout c = new GlyphLayout();
+
+                //Set spacing between letters
                 currentX += font.getSpaceXadvance() * 4.5f;
+
+                //Highlight characters which have been typed
                 if (i < word.getHighlightedCharacters()) {
                     font.setColor(Color.WHITE);
                     c.setText(font, String.valueOf(word.getText().charAt(i)));
                     font.draw(batch, c, currentX, word.getPosition().y);
                     continue;
                 }
+
+                //Render rest characters as green
                 font.setColor(Color.GREEN);
                 c.setText(font, String.valueOf(word.getText().charAt(i)));
                 font.draw(batch, c, currentX, word.getPosition().y);
@@ -184,7 +198,7 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
         for (Word word : words) {
             if (currentWord.endsWith(word.toString())) {
                 wordsToRemove.add(word);
-                wordsToAdd.add(new Word(possibleWords.get(position++), word.getColumn()));
+                wordsToAdd.add(new Word(possibleWords.get(random.nextInt(possibleWords.size())), word.getColumn()));
                 currentWord = currentWord.substring(currentWord.length() - word.getText().length());
             } else {
                 highlightConsecutive(word);
