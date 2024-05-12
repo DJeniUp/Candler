@@ -13,6 +13,8 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import games.rednblack.candler.scripts.PlayerScript;
+import games.rednblack.candler.system.CameraSystem;
 import games.rednblack.editor.renderer.SceneConfiguration;
 import games.rednblack.editor.renderer.SceneLoader;
 import games.rednblack.editor.renderer.resources.AsyncResourceManager;
@@ -67,6 +69,8 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
         mAsyncResourceManager = mAssetManager.get("project.dt", AsyncResourceManager.class);
         SceneConfiguration config = new SceneConfiguration();
         config.setResourceRetriever(mAsyncResourceManager);
+        CameraSystem cameraSystem = new CameraSystem(5, 40, 5, 6);
+        config.addSystem(cameraSystem);
 
         mSceneLoader = new SceneLoader(config);
         mEngine = mSceneLoader.getEngine();
@@ -77,6 +81,10 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
         mSceneLoader.loadScene("MainScene", mViewport);
 
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
+        ItemWrapper player = root.getChild("Player");
+        PlayerScript playerScript = new PlayerScript();
+        //player.addScript(playerScript);
+        //cameraSystem.setFocus(player.getEntity());
     }
 
 
