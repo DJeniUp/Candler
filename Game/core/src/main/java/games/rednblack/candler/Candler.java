@@ -20,13 +20,8 @@ import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 import org.apache.commons.lang3.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import static com.badlogic.gdx.math.MathUtils.random;
 
@@ -45,38 +40,20 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
     private ExtendViewport mHUDViewport;
 
-    private static final List<String> possibleSentences = new ArrayList<>();
+    private static final List<String> sentenceStorage = new ArrayList<>();
     SpriteBatch batch;
     private BitmapFont font;
-    private String currentSentence;
-    public Sentence sentence;
-    private int position;
-
-    private static ArrayList<String> loadSentencesFromCSV() {
-        ArrayList<String> sentences = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader("assets/sentences.csv"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String sentence = StringUtils.trim(line).toLowerCase();
-                sentences.add(sentence);
-
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return sentences;
-    }
-
+    private String typedSentence;
+    public Sentence toTypeSentence;
+    private int sentenceStorageIndex;
     @Override
     public void create(){
         batch = new SpriteBatch();
         font = new BitmapFont();
-        possibleSentences.addAll(loadSentencesFromCSV());
-        sentence=new Sentence(possibleSentences.get(0),1);
-        currentSentence = "";
-        position = 0;
+        sentenceStorage.addAll(SentenceLoader.loadSentencesFromCSV());
+        toTypeSentence =new Sentence(sentenceStorage.get(0),1);
+        typedSentence = "";
+        sentenceStorageIndex = 0;
         Gdx.input.setInputProcessor(this);
 
         font.getData().scaleX = 2;
@@ -114,27 +91,27 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
 
         batch.begin();
-        font.setFixedWidthGlyphs(sentence.toString());
-        float currentX = sentence.getPosition().x;
+        font.setFixedWidthGlyphs(toTypeSentence.toString());
+        float currentX = toTypeSentence.getPosition().x;
 
-        for (int i = 0; i < sentence.getText().length(); i++) {
+        for (int i = 0; i < toTypeSentence.getText().length(); i++) {
             GlyphLayout c = new GlyphLayout();
 
             //Set spacing between letters
             currentX += font.getSpaceXadvance() * 4.5f;
 
             //Highlight characters which have been typed
-            if (i < sentence.getHighlightedCharacters()) {
+            if (i < toTypeSentence.getHighlightedCharacters()) {
                 font.setColor(Color.WHITE);
-                c.setText(font, String.valueOf(sentence.getText().charAt(i)));
-                font.draw(batch, c, currentX, sentence.getPosition().y);
+                c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
+                font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
                 continue;
             }
 
             //Render rest characters as green
             font.setColor(Color.ORANGE);
-            c.setText(font, String.valueOf(sentence.getText().charAt(i)));
-            font.draw(batch, c, currentX, sentence.getPosition().y);
+            c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
+            font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
         }
         batch.end();
     }
@@ -171,26 +148,25 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        currentSentence = currentSentence.concat(String.valueOf(character));
+        typedSentence = typedSentence.concat(String.valueOf(character));
         ArrayList<Sentence> wordsToRemove = new ArrayList<>();
         ArrayList<Sentence> wordsToAdd = new ArrayList<>();
-        if(currentSentence.endsWith(sentence.toString())){
-            Sentence newSentence=new Sentence(possibleSentences.get(++position),sentence.getColumn());
-            sentence=newSentence;
+        if(typedSentence.endsWith(toTypeSentence.toString())){
+            toTypeSentence = new Sentence(sentenceStorage.get(++sentenceStorageIndex), toTypeSentence.getColumn());
         }else{
-            highlightConsecutive(sentence);
+            highlightConsecutive(toTypeSentence);
         }
         return true;
     }
 
     private void highlightConsecutive(Sentence sentence) {
-        if (StringUtils.isNotBlank(currentSentence)) {
+        if (StringUtils.isNotBlank(typedSentence)) {
             String text = sentence.getText();
             int matching = 0;
-            int maxIndex = Math.min(text.length(), currentSentence.length());
+            int maxIndex = Math.min(text.length(), typedSentence.length());
 
             for (int i = 1; i < maxIndex + 1; i++) {
-                if (currentSentence.endsWith(text.substring(0, i))) {
+                if (typedSentence.endsWith(text.substring(0, i))) {
                     matching = i;
                 }
             }
