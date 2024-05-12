@@ -46,6 +46,7 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
     private String typedSentence;
     public Sentence toTypeSentence;
     private int sentenceStorageIndex;
+    CandlerCharacter candle=null;
     @Override
     public void create(){
         batch = new SpriteBatch();
@@ -149,8 +150,6 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
     @Override
     public boolean keyTyped(char character) {
         typedSentence = typedSentence.concat(String.valueOf(character));
-        ArrayList<Sentence> wordsToRemove = new ArrayList<>();
-        ArrayList<Sentence> wordsToAdd = new ArrayList<>();
         if(typedSentence.endsWith(toTypeSentence.toString())){
             toTypeSentence = new Sentence(sentenceStorage.get(++sentenceStorageIndex), toTypeSentence.getColumn());
         }else{
