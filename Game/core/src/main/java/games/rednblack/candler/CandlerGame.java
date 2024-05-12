@@ -166,7 +166,7 @@ public class CandlerGame extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        if(character=='\b'){
+        if(character=='\b' || typedSentence.length()==toTypeSentence.getText().length()){
             //hold backspace case
             return false;
         }
