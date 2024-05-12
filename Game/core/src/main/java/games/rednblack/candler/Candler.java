@@ -1,6 +1,5 @@
 package games.rednblack.candler;
 
-import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -9,11 +8,9 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import games.rednblack.editor.renderer.SceneConfiguration;
@@ -23,12 +20,10 @@ import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 import org.apache.commons.lang3.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import static com.badlogic.gdx.math.MathUtils.random;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -45,49 +40,24 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
     private ExtendViewport mHUDViewport;
 
-    private static final List<String> possibleWords = new ArrayList<>();
+    private static final List<String> sentenceStorage = new ArrayList<>();
     SpriteBatch batch;
     private BitmapFont font;
-    private List<Word> words;
-    private String currentWord;
-    private int position;
-
-    public static ArrayList<String> loadWordsFromCSV(){
-        ArrayList<String> words = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader("assets/words.csv"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] columns = line.split(",");
-                String word = StringUtils.trim(columns[0]);
-                words.add(word);
-
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return words;
-    }
-
+    private String typedSentence;
+    public Sentence toTypeSentence;
+    private int sentenceStorageIndex;
     @Override
     public void create(){
-        position=0;
         batch = new SpriteBatch();
         font = new BitmapFont();
-        words = new ArrayList<>();
-        words= Collections.synchronizedList(words);
-        possibleWords.addAll(loadWordsFromCSV());
-        currentWord = "";
+        sentenceStorage.addAll(SentenceLoader.loadSentencesFromCSV());
+        toTypeSentence =new Sentence(sentenceStorage.get(0),1);
+        typedSentence = "";
+        sentenceStorageIndex = 0;
         Gdx.input.setInputProcessor(this);
+
         font.getData().scaleX = 2;
         font.getData().scaleY = 2;
-        for (int i = 0; i < 5; i++) {
-            addWord(possibleWords.get(position++),i);
-        }
-        for (Word word : words) {
-            word.setText(word.getText().trim());
-        }
 
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
@@ -109,38 +79,39 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
     }
 
-    private void addWord(String text,int column){
-        words.add(new Word(text, column));
-    }
 
     @Override
     public void render() {
 //        mCamera.update();
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         mViewport.apply();
         mEngine.process();
 
 
-        Gdx.gl.glClearColor(0, 0, 0, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        for(int w=0;w< words.size();w++){
-            Word word = words.get(w);
-            font.setFixedWidthGlyphs(word.toString());
-            float currentX=word.getPosition().x;
-            for(int i=0;i<word.getText().length();i++){
-                GlyphLayout c = new GlyphLayout();
-                currentX += font.getSpaceXadvance() * 4.5f;
-                if (i < word.getHighlightedCharacters()) {
-                    font.setColor(Color.WHITE);
-                    c.setText(font, String.valueOf(word.getText().charAt(i)));
-                    font.draw(batch, c, currentX, word.getPosition().y);
-                    continue;
-                }
-                font.setColor(Color.GREEN);
-                c.setText(font, String.valueOf(word.getText().charAt(i)));
-                font.draw(batch, c, currentX, word.getPosition().y);
+        font.setFixedWidthGlyphs(toTypeSentence.toString());
+        float currentX = toTypeSentence.getPosition().x;
+
+        for (int i = 0; i < toTypeSentence.getText().length(); i++) {
+            GlyphLayout c = new GlyphLayout();
+
+            //Set spacing between letters
+            currentX += font.getSpaceXadvance() * 4.5f;
+
+            //Highlight characters which have been typed
+            if (i < toTypeSentence.getHighlightedCharacters()) {
+                font.setColor(Color.WHITE);
+                c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
+                font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
+                continue;
             }
+
+            //Render rest characters as green
+            font.setColor(Color.ORANGE);
+            c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
+            font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
         }
         batch.end();
     }
@@ -177,37 +148,29 @@ public class Candler extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        currentWord = currentWord.concat(String.valueOf(character));
-        ArrayList<Word> wordsToRemove = new ArrayList<>();
-        ArrayList<Word> wordsToAdd = new ArrayList<>();
-
-        for (Word word : words) {
-            if (currentWord.endsWith(word.toString())) {
-                wordsToRemove.add(word);
-                wordsToAdd.add(new Word(possibleWords.get(position++), word.getColumn()));
-                currentWord = currentWord.substring(currentWord.length() - word.getText().length());
-            } else {
-                highlightConsecutive(word);
-            }
+        typedSentence = typedSentence.concat(String.valueOf(character));
+        ArrayList<Sentence> wordsToRemove = new ArrayList<>();
+        ArrayList<Sentence> wordsToAdd = new ArrayList<>();
+        if(typedSentence.endsWith(toTypeSentence.toString())){
+            toTypeSentence = new Sentence(sentenceStorage.get(++sentenceStorageIndex), toTypeSentence.getColumn());
+        }else{
+            highlightConsecutive(toTypeSentence);
         }
-        words.removeAll(wordsToRemove);
-        words.addAll(wordsToAdd);
         return true;
     }
 
-    private void highlightConsecutive(Word word) {
-        if (StringUtils.isNotBlank(currentWord)) {
-            String text = word.getText();
+    private void highlightConsecutive(Sentence sentence) {
+        if (StringUtils.isNotBlank(typedSentence)) {
+            String text = sentence.getText();
             int matching = 0;
-
-            int maxIndex = Math.min(text.length(), currentWord.length());
+            int maxIndex = Math.min(text.length(), typedSentence.length());
 
             for (int i = 1; i < maxIndex + 1; i++) {
-                if (currentWord.endsWith(text.substring(0, i))) {
+                if (typedSentence.endsWith(text.substring(0, i))) {
                     matching = i;
                 }
             }
-            word.setHighlightedCharacters(matching);
+            sentence.setHighlightedCharacters(matching);
         }
     }
 
