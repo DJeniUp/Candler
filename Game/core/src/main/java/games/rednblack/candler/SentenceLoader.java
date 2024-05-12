@@ -14,7 +14,7 @@ public class SentenceLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader("assets/sentences.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String sentence = StringUtils.trim(line).toLowerCase();
+                String sentence = StringUtils.trim(line);
                 sentences.add(sentence);
 
             }

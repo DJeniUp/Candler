@@ -43,7 +43,7 @@ public class CandlerGame extends ApplicationAdapter{
     private ExtendViewport mHUDViewport;
 
     SentenceMechanic mSentenceMechanic=new SentenceMechanic();
-    
+
     Candler candle=null;
     @Override
     public void create(){
