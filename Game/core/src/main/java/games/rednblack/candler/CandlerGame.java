@@ -17,7 +17,7 @@ import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class CandlerGame extends ApplicationAdapter{
+public class CandlerGame extends ApplicationAdapter {
     private AssetManager mAssetManager;
 
     private SceneLoader mSceneLoader;

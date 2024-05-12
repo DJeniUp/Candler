@@ -3,6 +3,7 @@ package games.rednblack.candler.lwjgl3;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import games.rednblack.candler.CandlerGame;
+import games.rednblack.candler.MenuState;
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {
