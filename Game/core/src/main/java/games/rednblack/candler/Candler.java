@@ -1,9 +1,13 @@
 package games.rednblack.candler;
 
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
-public class Candler implements GameObject {
-    Texture[] animationFrames;
+public class Candler extends InputAdapter implements GameObject {
+
     final int crdY = 50;
     int crdX = 0;
 

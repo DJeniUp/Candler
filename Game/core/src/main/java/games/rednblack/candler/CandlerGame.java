@@ -2,15 +2,10 @@ package games.rednblack.candler;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import games.rednblack.candler.scripts.PlayerScript;
@@ -20,13 +15,6 @@ import games.rednblack.editor.renderer.SceneLoader;
 import games.rednblack.editor.renderer.resources.AsyncResourceManager;
 import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
-import org.apache.commons.lang3.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.badlogic.gdx.math.MathUtils.random;
-
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class CandlerGame extends ApplicationAdapter{
@@ -44,11 +32,13 @@ public class CandlerGame extends ApplicationAdapter{
 
     SentenceMechanic mSentenceMechanic=new SentenceMechanic();
 
+    private TextureAtlas atlas;
     Candler candle=null;
     @Override
     public void create(){
-        mSentenceMechanic.create();
+//        atlas=new TextureAtlas(Utils.getInternalPath("Game/assets/orig/pack.atlas"));
 
+        mSentenceMechanic.create();
 
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
