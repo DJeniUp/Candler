@@ -19,8 +19,8 @@ public class Candler implements GameObject {
     }
 
     @Override
-    public void animate() {
-        
+    public void animate() { //TODO
+
     }
 
 }
