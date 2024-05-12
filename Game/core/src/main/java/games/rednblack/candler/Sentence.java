@@ -4,22 +4,21 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.util.Random;
 
-public class Word {
+public class Sentence {
     private final Vector2 position;
     private final int column;
     private String text;
     private int highlightedCharacters = 0;
 
 
-    public Word(String text, int column) {
+    public Sentence(String text, int column) {
         this.text = text;
         this.column = column;
-        this.position = new Vector2(getSpaceWithinColumn(column), 768);
+        this.position = new Vector2(getSpaceWithinColumn(column), 400);
     }
 
     private float getSpaceWithinColumn(int column) {
-        Random random = new Random();
-        return random.nextFloat(1, 245) + column * 248;
+        return column * 256;
     }
 
     public String getText() {
@@ -33,15 +32,6 @@ public class Word {
     public Vector2 getPosition() {
         return position;
     }
-
-    public void updatePosition(float deltaTime) throws Exception {
-        position.set(position.x, position.y - deltaTime);
-
-        if (position.y < 0) {
-            throw new Exception("Word reached the bottom");
-        }
-    }
-
 
     public int getHighlightedCharacters() {
         return highlightedCharacters;
