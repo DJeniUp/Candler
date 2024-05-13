@@ -10,19 +10,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MainMenuScreen extends ApplicationAdapter implements Screen {
 
-    CandlerGame game;
-    Texture playButtonActive;
-    Texture playButtonInactive;
-    Texture exitButtonActive;
-    Texture exitButtonInactive;
+    private CandlerGame game;
+    private Texture playButtonActive;
+    private Texture playButtonInactive;
+    private Texture exitButtonActive;
+    private Texture exitButtonInactive;
 
 
     public MainMenuScreen(CandlerGame game) {
         this.game = game;
-        playButtonActive = new Texture("libgdx.png");
-        playButtonInactive = new Texture("assets/libgdx.png");
-        exitButtonActive = new Texture("assets/libgdx.png");
-        exitButtonInactive = new Texture("assets/libgdx.png");
+//        playButtonActive = new Texture(Gdx.files.internal("Button.png"));
     }
 
     @Override
