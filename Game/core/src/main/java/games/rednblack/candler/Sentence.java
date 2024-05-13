@@ -14,7 +14,7 @@ public class Sentence {
     public Sentence(String text, int column) {
         this.text = text;
         this.column = column;
-        this.position = new Vector2(getSpaceWithinColumn(column), 400);
+        this.position = new Vector2(-20, 400);
     }
 
     private float getSpaceWithinColumn(int column) {
