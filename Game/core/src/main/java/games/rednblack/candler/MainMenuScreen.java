@@ -18,7 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-public class MainMenuScreen extends ApplicationAdapter implements Screen{
+public class MainMenuScreen extends ApplicationAdapter{
     private Stage stage;
     private Game game;
     SpriteBatch batch;
@@ -33,13 +33,13 @@ public class MainMenuScreen extends ApplicationAdapter implements Screen{
 
     public MainMenuScreen(Game game) {
 
-        create();
+        //create();
         this.game=game;
     }
 
 
 
-
+    @Override
     public void create() {
         batch = new SpriteBatch();
         stage=new Stage();
@@ -61,13 +61,9 @@ public class MainMenuScreen extends ApplicationAdapter implements Screen{
         });
     }
 
-    @Override
-    public void show() {
-
-    }
 
     @Override
-    public void render(float v) {
+    public void render() {
         Gdx.gl.glClearColor(0,0,1,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
@@ -90,10 +86,6 @@ public class MainMenuScreen extends ApplicationAdapter implements Screen{
 
     }
 
-    @Override
-    public void hide() {
-
-    }
 
 
     @Override
