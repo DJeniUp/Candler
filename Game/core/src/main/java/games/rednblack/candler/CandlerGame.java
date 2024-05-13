@@ -1,5 +1,6 @@
 package games.rednblack.candler;
 
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -8,13 +9,17 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import games.rednblack.candler.components.PlayerComponent;
+import games.rednblack.candler.scripts.PlayerScript;
 import games.rednblack.candler.system.CameraSystem;
 import games.rednblack.editor.renderer.SceneConfiguration;
 import games.rednblack.editor.renderer.SceneLoader;
 import games.rednblack.editor.renderer.resources.AsyncResourceManager;
 import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
+import games.rednblack.editor.renderer.utils.ComponentRetriever;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -48,16 +53,19 @@ public class CandlerGame extends Game {
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
         mAssetManager.load("project.dt", AsyncResourceManager.class);
+
         mAssetManager.finishLoading();
 
         mAsyncResourceManager = mAssetManager.get("project.dt", AsyncResourceManager.class);
         SceneConfiguration config = new SceneConfiguration();
         config.setResourceRetriever(mAsyncResourceManager);
-        CameraSystem cameraSystem = new CameraSystem(40, 40, 25, 25);
+        CameraSystem cameraSystem = new CameraSystem(-500, 500, -500, 500);
         config.addSystem(cameraSystem);
 
         mSceneLoader = new SceneLoader(config);
         mEngine = mSceneLoader.getEngine();
+
+        ComponentRetriever.addMapper(PlayerComponent.class);
 
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(60, 32, mCamera);
@@ -65,7 +73,11 @@ public class CandlerGame extends Game {
         mSceneLoader.loadScene("MainScene", mViewport);
 
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
-        ItemWrapper player = root.getChild("Player");
+
+        ItemWrapper player = root.getChild("player");
+        ComponentRetriever.create(player.getChild("player-anim").getEntity(), PlayerComponent.class, mEngine);
+        PlayerScript playerScript = new PlayerScript();
+        player.addScript(playerScript);
         cameraSystem.setFocus(player.getEntity());
     }
 
@@ -79,9 +91,9 @@ public class CandlerGame extends Game {
         mViewport.apply();
         mEngine.process();
         mSentenceMechanic.update();
-        stage.getBatch().begin();
-        candler.animate(stage);
-        stage.getBatch().end();
+        //stage.getBatch().begin();
+        //candler.animate(stage);
+        //stage.getBatch().end();
     }
 
     @Override

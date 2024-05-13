@@ -11,3 +11,4 @@ public interface GameObject {
     void moveRight();
     void animate(Stage stage);
 }
+

@@ -25,3 +25,4 @@ public class Lantern implements GameObject {
 
     }
 }
+

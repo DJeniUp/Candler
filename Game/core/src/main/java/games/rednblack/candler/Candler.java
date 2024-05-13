@@ -51,3 +51,4 @@ public class Candler extends InputAdapter implements GameObject {
     }
 
 }
+
