@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -30,6 +31,8 @@ public class MainMenuScreen extends ApplicationAdapter{
     private Texture exitButtonActive;
     private Texture exitButtonInactive;
 
+    private Texture bg;
+
 
     public MainMenuScreen(Game game) {
 
@@ -45,9 +48,11 @@ public class MainMenuScreen extends ApplicationAdapter{
         stage=new Stage();
         Gdx.input.setInputProcessor(stage);
         playButtonActive = new Texture(Gdx.files.internal("Button.png"));
+        bg = new Texture(Gdx.files.internal("MenuBg.png"));
         myTextureRegion = new TextureRegion(playButtonActive);
         myTexRegionDrawable = new TextureRegionDrawable(myTextureRegion);
         button = new ImageButton(myTexRegionDrawable);
+
 
         stage.addActor(button);
         button.addListener(new ChangeListener()
@@ -66,6 +71,9 @@ public class MainMenuScreen extends ApplicationAdapter{
     public void render() {
         Gdx.gl.glClearColor(0,0,1,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.getBatch().begin();
+        stage.getBatch().draw(bg,0,0,stage.getWidth(),stage.getHeight());
+        stage.getBatch().end();
         stage.act();
         stage.draw();
     }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import games.rednblack.editor.renderer.components.physics.PhysicsBodyComponent;
 import games.rednblack.editor.renderer.scripts.BasicScript;
+import games.rednblack.editor.renderer.utils.ComponentRetriever;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 public class PlayerScript extends BasicScript {
@@ -19,7 +20,7 @@ public class PlayerScript extends BasicScript {
     @Override
     public void init(int item) {
         super.init(item);
-
+//        mPhysicsBodyComponent = ComponentRetriever.get(item,PhysicsBodyComponent.class);/
     }
     @Override
     public void act(float v) {
