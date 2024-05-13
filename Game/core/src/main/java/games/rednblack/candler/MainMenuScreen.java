@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class MainMenuScreen extends ApplicationAdapter{
     private Stage stage;
-    private Game game;
+    private CandlerGame game;
     SpriteBatch batch;
     private Texture playButtonActive;
     private TextureRegion myTextureRegion;
@@ -33,8 +33,10 @@ public class MainMenuScreen extends ApplicationAdapter{
 
     private Texture bg;
 
+    private boolean inGame = false;
 
-    public MainMenuScreen(Game game) {
+
+    public MainMenuScreen(CandlerGame game) {
 
         //create();
         this.game=game;
@@ -59,8 +61,9 @@ public class MainMenuScreen extends ApplicationAdapter{
 
             @Override
             public void changed(ChangeEvent changeEvent, Actor actor) {
-                System.out.println("Button Pressed");
-
+                inGame = true;
+                game.stage = stage;
+                game.create();
             }
         });
     }
@@ -68,13 +71,18 @@ public class MainMenuScreen extends ApplicationAdapter{
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(0,0,1,1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.getBatch().begin();
-        stage.getBatch().draw(bg,0,0,stage.getWidth(),stage.getHeight());
-        stage.getBatch().end();
-        stage.act();
-        stage.draw();
+        if(!inGame) {
+            Gdx.gl.glClearColor(0, 0, 1, 1);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            stage.getBatch().begin();
+            stage.getBatch().draw(bg, 0, 0, stage.getWidth(), stage.getHeight());
+            stage.getBatch().end();
+            stage.act();
+            stage.draw();
+        }
+        else{
+            game.render();
+        }
     }
 
 

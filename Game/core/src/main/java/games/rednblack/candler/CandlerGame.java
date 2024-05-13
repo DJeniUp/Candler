@@ -1,17 +1,15 @@
 package games.rednblack.candler;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import games.rednblack.candler.scripts.PlayerScript;
 import games.rednblack.candler.system.CameraSystem;
 import games.rednblack.editor.renderer.SceneConfiguration;
 import games.rednblack.editor.renderer.SceneLoader;
@@ -37,11 +35,12 @@ public class CandlerGame extends Game {
 
     private TextureAtlas atlas;
     Candler candler=null;
+    Stage stage;
     @Override
     public void create(){
         //setScreen(new MainMenuScreen(this));
-//        atlas=new TextureAtlas(Gdx.files.internal("Game/assets/orig/pack.atlas"));
-//        candler = new Candler(atlas);
+        atlas=new TextureAtlas(Gdx.files.internal("orig/pack.atlas"));
+        candler = new Candler(atlas);
         batch = new SpriteBatch();
 
         mSentenceMechanic.create(batch);
@@ -67,8 +66,6 @@ public class CandlerGame extends Game {
 
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
         ItemWrapper player = root.getChild("Player");
-        PlayerScript playerScript = new PlayerScript();
-        player.addScript(playerScript);
         cameraSystem.setFocus(player.getEntity());
     }
 
@@ -81,8 +78,10 @@ public class CandlerGame extends Game {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         mViewport.apply();
         mEngine.process();
-
         mSentenceMechanic.update();
+        stage.getBatch().begin();
+        candler.animate(stage);
+        stage.getBatch().end();
     }
 
     @Override
