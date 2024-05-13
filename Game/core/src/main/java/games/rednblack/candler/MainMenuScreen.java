@@ -71,9 +71,10 @@ public class MainMenuScreen extends ApplicationAdapter{
 
     @Override
     public void render() {
+        System.out.println(stage.getHeight());
+        Gdx.gl.glClearColor(0, 0, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if(!inGame) {
-            Gdx.gl.glClearColor(0, 0, 1, 1);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
             stage.getBatch().begin();
             stage.getBatch().draw(bg, 0, 0, stage.getWidth(), stage.getHeight());
             stage.getBatch().end();
