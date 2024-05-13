@@ -48,7 +48,6 @@ public class CandlerGame extends Game {
         candler = new Candler(atlas);
         batch = new SpriteBatch();
 
-        mSentenceMechanic.create(batch);
 
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
@@ -79,11 +78,14 @@ public class CandlerGame extends Game {
         PlayerScript playerScript = new PlayerScript();
         player.addScript(playerScript);
         cameraSystem.setFocus(player.getEntity());
+
+        mSentenceMechanic.create(batch);
     }
 
 
     @Override
     public void render() {
+        batch.begin();
         super.render();
         mCamera.update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -94,6 +96,10 @@ public class CandlerGame extends Game {
         //stage.getBatch().begin();
         //candler.animate(stage);
         //stage.getBatch().end();
+        stage.getBatch().begin();
+        candler.animate(stage);
+        stage.getBatch().end();
+        batch.end();
     }
 
     @Override
