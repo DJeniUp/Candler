@@ -1,11 +1,8 @@
 package games.rednblack.candler;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -56,9 +53,7 @@ public class MainMenuScreen extends ApplicationAdapter{
         button = new ImageButton(myTexRegionDrawable);
         button.setPosition(stage.getWidth()/2-100,stage.getHeight()/2-50);
         stage.addActor(button);
-        button.addListener(new ChangeListener()
-        {
-
+        button.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent changeEvent, Actor actor) {
                 inGame = true;
@@ -71,9 +66,13 @@ public class MainMenuScreen extends ApplicationAdapter{
 
     @Override
     public void render() {
-        //System.out.println(stage.getHeight());
         Gdx.gl.glClearColor(0, 0, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+            inGame = true;
+            game.stage = stage;
+            game.create();
+        }
         if(!inGame) {
             stage.getBatch().begin();
             stage.getBatch().draw(bg, 0, 0, stage.getWidth(), stage.getHeight());
