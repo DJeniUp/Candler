@@ -43,7 +43,6 @@ public class CandlerGame extends Game {
         candler = new Candler(atlas);
         batch = new SpriteBatch();
 
-        mSentenceMechanic.create(batch);
 
         mAssetManager = new AssetManager();
         mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
@@ -67,6 +66,8 @@ public class CandlerGame extends Game {
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
         ItemWrapper player = root.getChild("Player");
         cameraSystem.setFocus(player.getEntity());
+
+        mSentenceMechanic.create(batch);
     }
 
 

@@ -51,6 +51,9 @@ public class SentenceMechanic implements InputProcessor {
                     font.setColor(Color.RED);
                 }
                 c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
+                if(toTypeSentence.getText().charAt(i)==' '){
+                    c.setText(font,"_");
+                }
                 font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
                 continue;
             }
