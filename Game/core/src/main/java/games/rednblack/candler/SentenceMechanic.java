@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SentenceMechanic implements InputProcessor {
+
     private static final List<String> sentenceStorage = new ArrayList<>();
     SpriteBatch batch;
     private BitmapFont font;

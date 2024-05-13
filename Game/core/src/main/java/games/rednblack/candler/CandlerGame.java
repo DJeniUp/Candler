@@ -17,6 +17,7 @@ import games.rednblack.candler.scripts.PlayerScript;
 import games.rednblack.candler.system.CameraSystem;
 import games.rednblack.editor.renderer.SceneConfiguration;
 import games.rednblack.editor.renderer.SceneLoader;
+import games.rednblack.editor.renderer.data.CompositeItemVO;
 import games.rednblack.editor.renderer.resources.AsyncResourceManager;
 import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ComponentRetriever;
@@ -61,6 +62,7 @@ public class CandlerGame extends Game {
         CameraSystem cameraSystem = new CameraSystem(-500, 500, -500, 500);
         config.addSystem(cameraSystem);
 
+
         mSceneLoader = new SceneLoader(config);
         mEngine = mSceneLoader.getEngine();
 
@@ -93,11 +95,8 @@ public class CandlerGame extends Game {
         mViewport.apply();
         mEngine.process();
         mSentenceMechanic.update();
-        //stage.getBatch().begin();
-        //candler.animate(stage);
-        //stage.getBatch().end();
         stage.getBatch().begin();
-        candler.animate(stage);
+        //candler.animate(stage);
         stage.getBatch().end();
         batch.end();
     }
@@ -107,6 +106,7 @@ public class CandlerGame extends Game {
         mViewport.update(width,height);
         if(width!=0 && height!=0){
             mSceneLoader.resize(width,height);
+            
         }
     }
 
