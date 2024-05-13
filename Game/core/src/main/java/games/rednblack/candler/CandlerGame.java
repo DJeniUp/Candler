@@ -68,7 +68,6 @@ public class CandlerGame extends Game {
 
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(60, 32, mCamera);
-
         mSceneLoader.loadScene("MainScene", mViewport);
 
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
@@ -108,6 +107,7 @@ public class CandlerGame extends Game {
     @Override
     public void resize(int width, int height) {
         mViewport.update(width,height);
+        batch.setProjectionMatrix(mViewport.getCamera().combined);
         if(width!=0 && height!=0){
             mSceneLoader.resize(width,height);
         }
