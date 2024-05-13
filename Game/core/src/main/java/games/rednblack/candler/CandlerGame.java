@@ -73,13 +73,15 @@ public class CandlerGame extends Game {
 
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
 
+
+        mSentenceMechanic.create(batch);
+
         ItemWrapper player = root.getChild("player");
         ComponentRetriever.create(player.getChild("player-anim").getEntity(), PlayerComponent.class, mEngine);
         PlayerScript playerScript = new PlayerScript();
         player.addScript(playerScript);
         cameraSystem.setFocus(player.getEntity());
 
-        mSentenceMechanic.create(batch);
     }
 
 
@@ -92,6 +94,7 @@ public class CandlerGame extends Game {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         mViewport.apply();
         mEngine.process();
+        mSentenceMechanic.toTypeSentence.getPosition().y=Gdx.graphics.getHeight()*0.75f;
         mSentenceMechanic.update();
         //stage.getBatch().begin();
         //candler.animate(stage);
