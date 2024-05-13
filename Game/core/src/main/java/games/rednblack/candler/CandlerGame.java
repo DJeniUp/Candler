@@ -97,7 +97,7 @@ public class CandlerGame extends Game {
         //candler.animate(stage);
         //stage.getBatch().end();
         stage.getBatch().begin();
-        candler.animate(stage);
+//        candler.animate(stage);
         stage.getBatch().end();
         batch.end();
     }
