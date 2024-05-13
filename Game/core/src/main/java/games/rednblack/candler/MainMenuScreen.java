@@ -1,12 +1,10 @@
 package games.rednblack.candler;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Screen;
 
 public class MainMenuScreen extends ApplicationAdapter implements Screen {
 
@@ -19,7 +17,7 @@ public class MainMenuScreen extends ApplicationAdapter implements Screen {
 
     public MainMenuScreen(CandlerGame game) {
         this.game = game;
-//        playButtonActive = new Texture(Gdx.files.internal("Button.png"));
+        playButtonActive = new Texture(Gdx.files.internal("Button.png"));
     }
 
     @Override

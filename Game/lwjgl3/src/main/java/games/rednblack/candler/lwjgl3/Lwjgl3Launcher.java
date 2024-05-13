@@ -14,7 +14,7 @@ public class Lwjgl3Launcher {
 
     private static Lwjgl3Application createApplication() {
         CandlerGame game = new CandlerGame();
-        return new Lwjgl3Application(game, getDefaultConfiguration());
+        return new Lwjgl3Application(new MainMenuScreen(game), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
