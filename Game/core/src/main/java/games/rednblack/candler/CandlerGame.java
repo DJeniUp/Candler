@@ -54,7 +54,7 @@ public class CandlerGame extends Game {
         mAsyncResourceManager = mAssetManager.get("project.dt", AsyncResourceManager.class);
         SceneConfiguration config = new SceneConfiguration();
         config.setResourceRetriever(mAsyncResourceManager);
-        CameraSystem cameraSystem = new CameraSystem(5, 40, 5, 6);
+        CameraSystem cameraSystem = new CameraSystem(40, 40, 25, 25);
         config.addSystem(cameraSystem);
 
         mSceneLoader = new SceneLoader(config);
@@ -68,15 +68,15 @@ public class CandlerGame extends Game {
         ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
         ItemWrapper player = root.getChild("Player");
         PlayerScript playerScript = new PlayerScript();
-//        player.addScript(playerScript);
-//        cameraSystem.setFocus(player.getEntity());
+        player.addScript(playerScript);
+        cameraSystem.setFocus(player.getEntity());
     }
 
 
     @Override
     public void render() {
         super.render();
-//        mCamera.update();
+        mCamera.update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         mViewport.apply();

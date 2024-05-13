@@ -23,17 +23,15 @@ public class PlayerScript extends BasicScript {
     }
     @Override
     public void act(float v) {
+        Body body = mPhysicsBodyComponent.body;
+        speed.set(body.getLinearVelocity());
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-
-            Body body = mPhysicsBodyComponent.body;
-            speed.set(body.getLinearVelocity());
+            Gdx.app.log("PlayerScript", "Left key pressed");
             impulse.set(-5, 0);
 
             body.applyLinearImpulse(impulse.sub(speed), body.getWorldCenter(), true);
-        }else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-
-            Body body = mPhysicsBodyComponent.body;
-            speed.set(body.getLinearVelocity());
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             impulse.set(5, 0);
 
             body.applyLinearImpulse(impulse.sub(speed), body.getWorldCenter(), true);
