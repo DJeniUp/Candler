@@ -1,6 +1,7 @@
 package games.rednblack.candler;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
@@ -19,7 +20,7 @@ import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class CandlerGame extends ApplicationAdapter {
+public class CandlerGame extends Game {
     SpriteBatch batch;
     private AssetManager mAssetManager;
 
@@ -31,7 +32,6 @@ public class CandlerGame extends ApplicationAdapter {
 
     private com.artemis.World mEngine;
 
-    private ExtendViewport mHUDViewport;
 
     SentenceMechanic mSentenceMechanic=new SentenceMechanic();
 
@@ -39,6 +39,7 @@ public class CandlerGame extends ApplicationAdapter {
     Candler candler=null;
     @Override
     public void create(){
+        //setScreen(new MainMenuScreen(this));
 //        atlas=new TextureAtlas(Gdx.files.internal("Game/assets/orig/pack.atlas"));
 //        candler = new Candler(atlas);
         batch = new SpriteBatch();
