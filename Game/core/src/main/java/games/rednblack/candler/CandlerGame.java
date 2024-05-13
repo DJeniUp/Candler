@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,6 +25,7 @@ import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class CandlerGame extends Game {
+    private Music backgroundMusic;
     SpriteBatch batch;
     private AssetManager mAssetManager;
 
@@ -43,6 +45,10 @@ public class CandlerGame extends Game {
     Stage stage;
     @Override
     public void create(){
+        backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("backgroundMusic.mp3"));
+        backgroundMusic.setLooping(true);
+        backgroundMusic.play();
+
         //setScreen(new MainMenuScreen(this));
         atlas=new TextureAtlas(Gdx.files.internal("orig/pack.atlas"));
         candler = new Candler(atlas);
@@ -86,6 +92,7 @@ public class CandlerGame extends Game {
 
     @Override
     public void render() {
+        batch.setProjectionMatrix(mCamera.combined);
         batch.begin();
         super.render();
         mCamera.update();
