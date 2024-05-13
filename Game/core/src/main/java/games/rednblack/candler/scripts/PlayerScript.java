@@ -55,10 +55,6 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             movePlayer(RIGHT);
         }
-
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            movePlayer(JUMP);
-        }
     }
 
     public void movePlayer(int direction) {
@@ -72,10 +68,6 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
                 break;
             case RIGHT:
                 impulse.set(500, speed.y);
-                break;
-            case JUMP:
-                TransformComponent transformComponent = transformMapper.get(entity);
-                impulse.set(speed.x, transformComponent.y < 6 ? 5 : speed.y);
                 break;
         }
 
