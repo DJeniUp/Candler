@@ -52,8 +52,7 @@ public class MainMenuScreen extends ApplicationAdapter{
         myTextureRegion = new TextureRegion(playButtonActive);
         myTexRegionDrawable = new TextureRegionDrawable(myTextureRegion);
         button = new ImageButton(myTexRegionDrawable);
-
-
+        button.setPosition(stage.getWidth()/2-100,stage.getHeight()/2-50);
         stage.addActor(button);
         button.addListener(new ChangeListener()
         {
