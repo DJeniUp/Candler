@@ -73,6 +73,7 @@ public class CandlerGame extends Game {
 
     @Override
     public void render() {
+        batch.begin();
         super.render();
         mCamera.update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -83,6 +84,7 @@ public class CandlerGame extends Game {
         stage.getBatch().begin();
         candler.animate(stage);
         stage.getBatch().end();
+        batch.end();
     }
 
     @Override

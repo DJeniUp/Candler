@@ -33,7 +33,6 @@ public class SentenceMechanic implements InputProcessor {
     }
 
     public void update(){
-        batch.begin();
         font.setFixedWidthGlyphs(toTypeSentence.toString());
         float currentX = toTypeSentence.getPosition().x;
 
@@ -63,7 +62,6 @@ public class SentenceMechanic implements InputProcessor {
             c.setText(font, String.valueOf(toTypeSentence.getText().charAt(i)));
             font.draw(batch, c, currentX, toTypeSentence.getPosition().y);
         }
-        batch.end();
     }
 
     public void dispose(){
