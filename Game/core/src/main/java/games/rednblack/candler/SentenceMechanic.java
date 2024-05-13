@@ -29,8 +29,8 @@ public class SentenceMechanic implements InputProcessor {
         typedSentence = "";
         sentenceStorageIndex = 0;
         Gdx.input.setInputProcessor(this);
-        font.getData().scaleX = 2;
-        font.getData().scaleY = 2;
+        font.getData().scaleX = 5;
+        font.getData().scaleY = 5;
     }
 
     public void update(){
@@ -41,7 +41,7 @@ public class SentenceMechanic implements InputProcessor {
             GlyphLayout c = new GlyphLayout();
 
             //Set spacing between letters
-            currentX += font.getSpaceXadvance() * 4.5f;
+            currentX += font.getSpaceXadvance() * 12f;
 
             //Highlight characters which have been typed
             if (i < toTypeSentence.getHighlightedCharacters()) {
