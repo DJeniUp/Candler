@@ -19,16 +19,17 @@ public class Manager extends ApplicationAdapter{
         batch = new SpriteBatch();
         gameArtist = new GameArtist();
         menuArtist = new MenuArtist(this,stage);
+        Location = "MainMenu";
     }
 
     @Override
     public void create() {
-        Gdx.input.setInputProcessor(stage);
+        Gdx.input.setInputProcessor(stage) ;
     }
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(0, 0, 1, 1);
+        Gdx.gl.glClearColor(1, 0.6f, 0.01f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (Objects.equals(Location, "MainMenu")) {
@@ -51,8 +52,15 @@ public class Manager extends ApplicationAdapter{
     @Override
     public void resize(int i, int i1) {
         //stage.setViewport(i, i1, false);
-    }
+        //WTF
 
+        //        mViewport.update(width,height);
+        //        batch.setProjectionMatrix(mViewport.getCamera().combined);
+        //        if(width!=0 && height!=0){
+        //            mSceneLoader.resize(width,height);
+        //
+        //        }
+    }
     @Override
     public void pause() {}
     @Override
