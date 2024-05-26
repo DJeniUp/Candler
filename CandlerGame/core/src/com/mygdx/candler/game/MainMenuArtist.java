@@ -30,15 +30,15 @@ public class MainMenuArtist implements Artist{
     public void update(){
         Gdx.input.setInputProcessor(typerArtist);
         typerArtist.sentenceDrawers.clear();
-        typerArtist.load(0,new Vector2(0.43f,0.48f));
-        typerArtist.load(1 ,new Vector2(0.43f,0.3f));
+        typerArtist.load(0,new Vector2(0.42f,0.58f));
+        typerArtist.load(1 ,new Vector2(0.42f,0.3f));
     }
     @Override
     public void draw() {
         stage.getBatch().begin();
         stage.getBatch().draw(backgroundTexture,0,0,stage.getWidth(),stage.getHeight());
-        stage.getBatch().draw(buttonBg,0.42f,0.46f,0.58f,0.54f);
-        stage.getBatch().draw(buttonBg,0.42f,0.27f,0.58f,0.33f);
+        stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.47f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
+        stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.19f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
         typerArtist.draw();
         stage.getBatch().end();
     }
