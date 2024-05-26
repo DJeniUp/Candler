@@ -1,4 +1,4 @@
-package Skeleton.Typing;
+package Typing;
 
 import org.apache.commons.lang3.StringUtils;
 

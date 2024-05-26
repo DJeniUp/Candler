@@ -4,14 +4,8 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class Manager extends ApplicationAdapter{
@@ -20,15 +14,6 @@ public class Manager extends ApplicationAdapter{
     MenuArtist menuArtist;
     SpriteBatch batch;
     String Location;
-
-    private Texture exitButtonActive;
-    private Texture exitButtonInactive;
-
-
-
-    private boolean inGame = false;
-
-
     public Manager() {
         stage = new Stage();
         batch = new SpriteBatch();
@@ -40,7 +25,6 @@ public class Manager extends ApplicationAdapter{
     public void create() {
         Gdx.input.setInputProcessor(stage);
     }
-
 
     @Override
     public void render() {
@@ -58,6 +42,11 @@ public class Manager extends ApplicationAdapter{
                 System.exit(0);
             }
         }
+        if(Objects.equals(Location,"Game")){
+            gameArtist.draw();
+        }else if(Objects.equals(Location, "MainMenu")) {
+            menuArtist.draw();
+        }
     }
     @Override
     public void resize(int i, int i1) {
@@ -65,17 +54,9 @@ public class Manager extends ApplicationAdapter{
     }
 
     @Override
-    public void pause() {
-
-    }
-
+    public void pause() {}
     @Override
-    public void resume() {
-
-    }
-
-
-
+    public void resume() {}
     @Override
     public void dispose() {
         batch.dispose();

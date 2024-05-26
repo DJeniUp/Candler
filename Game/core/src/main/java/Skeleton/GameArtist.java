@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import games.rednblack.candler.GameObject;
-import Skeleton.Typing.SentenceMechanic;
+import Typing.SentenceMechanic;
 import games.rednblack.candler.components.PlayerComponent;
 import games.rednblack.candler.scripts.PlayerScript;
 import games.rednblack.candler.system.CameraSystem;
@@ -88,7 +88,6 @@ public class GameArtist implements Artist{
     public void render() {
         batch.setProjectionMatrix(mCamera.combined);
         batch.begin();
-        super.render();
         mCamera.update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
