@@ -69,9 +69,9 @@ public class Manager extends ApplicationAdapter{
     public void dispose() {
         batch.dispose();
         stage.dispose();
-//        sentenceMechanic.dispose();
-//        assetManager.dispose();
-//        sceneLoader.dispose();
+        sentenceMechanic.dispose();
+        assetManager.dispose();
+        sceneLoader.dispose();
         //super.dispose();
     }
 }

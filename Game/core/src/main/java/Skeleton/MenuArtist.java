@@ -2,7 +2,6 @@ package Skeleton;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -14,7 +13,7 @@ public class MenuArtist implements Artist{
     ImageButton playButton;
     Stage stage;
     Manager manager;
-    MenuArtist(Manager manageR,Stage stageArg){
+    MenuArtist(Manager manageR, Stage stageArg){
         manager=manageR;
         stage = stageArg;
         playButton = new ImageButton(new TextureRegionDrawable(new Texture(Gdx.files.internal("Button.png"))));
