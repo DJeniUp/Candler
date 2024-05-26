@@ -1,0 +1,114 @@
+<mxfile host="Electron" modified="2024-05-26T12:54:07.398Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="de44B814f6kOH8HoOf4Z" version="24.4.8" type="device">
+  <diagram name="Сторінка-1" id="VLp5z-7r8qwj_8sy7Fu5">
+    <mxGraphModel dx="1354" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-2" target="GTxMw8XgjAV4yNWsiG1X-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-2" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="140" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-3" target="GTxMw8XgjAV4yNWsiG1X-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-3" value="Main Thread&lt;div&gt;(manager)&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-5" target="GTxMw8XgjAV4yNWsiG1X-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-5" value="Enter pressed" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-7" target="GTxMw8XgjAV4yNWsiG1X-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-7" value="Esc pressed" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-8" value="Change Location&lt;div&gt;to&amp;nbsp;&lt;/div&gt;&lt;div&gt;&quot;Main menu&quot;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-9" target="GTxMw8XgjAV4yNWsiG1X-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-9" target="GTxMw8XgjAV4yNWsiG1X-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-9" target="GTxMw8XgjAV4yNWsiG1X-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="620" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="538" y="410" />
+              <mxPoint x="538" y="411" />
+              <mxPoint x="720" y="411" />
+              <mxPoint x="720" y="600" />
+              <mxPoint x="330" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-9" value="Check buttons" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="390" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-12" value="&lt;div&gt;in GameThread and Esc pressed&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-15" value="In main menu&lt;div&gt;and Esc pressed&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="460" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-18" value="Change Location&lt;div&gt;to&lt;/div&gt;&lt;div&gt;&quot;Game&quot;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-20" value="In main menu and&lt;div&gt;enter pressed&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-22" target="GTxMw8XgjAV4yNWsiG1X-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="360" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="31" y="670" />
+              <mxPoint x="31" y="355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-22" value="Run Artist of&lt;div&gt;wanted process&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-26" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="GTxMw8XgjAV4yNWsiG1X-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="480" as="sourcePoint" />
+            <mxPoint x="160" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-27" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="600" as="sourcePoint" />
+            <mxPoint x="330" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-28" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="600" as="sourcePoint" />
+            <mxPoint x="520" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-30" value="Exit the program" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="271" y="500" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-31" value="Location: String corresponding to what should we display now" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="460" y="118" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GTxMw8XgjAV4yNWsiG1X-32" value="Artist: Class that draws the wanted process (menu, game, rules,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;...)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="445" y="148" width="380" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,4 +1,4 @@
-package games.rednblack.candler;
+package Skeleton.Typing;
 
 import com.badlogic.gdx.math.Vector2;
 

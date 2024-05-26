@@ -1,5 +1,7 @@
-package games.rednblack.candler;
+package Skeleton.Typing;
 
+import Skeleton.Typing.Sentence;
+import Skeleton.Typing.SentenceLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;

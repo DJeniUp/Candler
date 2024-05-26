@@ -1,4 +1,4 @@
-package games.rednblack.candler;
+package Skeleton.Typing;
 
 import org.apache.commons.lang3.StringUtils;
 

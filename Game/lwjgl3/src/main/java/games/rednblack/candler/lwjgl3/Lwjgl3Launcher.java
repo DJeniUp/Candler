@@ -2,8 +2,8 @@ package games.rednblack.candler.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import games.rednblack.candler.CandlerGame;
-import games.rednblack.candler.MainMenuScreen;
+import Skeleton.CandlerGame;
+import Skeleton.Manager;
 //import games.rednblack.candler.MainMenuScreen;
 
 /** Launches the desktop (LWJGL3) application. */
@@ -14,8 +14,7 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3Application createApplication() {
-        CandlerGame game = new CandlerGame();
-        return new Lwjgl3Application(new MainMenuScreen(game), getDefaultConfiguration());
+        return new Lwjgl3Application(new Manager(), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
