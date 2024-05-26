@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class TyperArtist implements Artist, TypingProcessor {
     BitmapFont font;
     Stage stage;
-    String typedSentence;
-    ArrayList<SentenceDrawer> sentenceDrawers;
+    StringBuilder typedSentence = new StringBuilder();
+    public ArrayList<SentenceDrawer> sentenceDrawers;
     ArrayList<String> possibleSentences;
 
     public TyperArtist(Stage stage, FileReader fileReader) {
@@ -26,7 +26,7 @@ public class TyperArtist implements Artist, TypingProcessor {
     @Override
     public void draw() {
         for(SentenceDrawer sentenceDrawer:sentenceDrawers){
-            sentenceDrawer.draw(typedSentence);
+            sentenceDrawer.draw(typedSentence.toString());
             if(sentenceDrawer.done){
                 sentenceDrawers.remove(sentenceDrawer);
             }
@@ -34,8 +34,15 @@ public class TyperArtist implements Artist, TypingProcessor {
     }
     @Override
     public boolean keyTyped(char c) {
-        typedSentence += c;
-        return false;
+        if(c=='\b'){
+            if(typedSentence.isEmpty()){
+                return false;
+            }
+            typedSentence.deleteCharAt(typedSentence.length()-1);
+            return true;
+        }
+        typedSentence.append(c);
+        return true;
     }
 
     public void load(int possibleSentenceIndex, Vector2 coords){

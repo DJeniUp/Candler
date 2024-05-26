@@ -42,4 +42,7 @@ public interface TypingProcessor extends InputProcessor {
     default boolean scrolled(float v, float v1){
         return false;
     };
+
+    @Override
+    boolean keyTyped(char c);
 }
