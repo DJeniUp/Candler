@@ -1,0 +1,6 @@
+Light1.png
+	size: 256, 128
+	filter: Linear, Linear
+Light1
+	index: 0
+	bounds: 1, 1, 128, 64

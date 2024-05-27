@@ -3,53 +3,113 @@ pack.png
 	filter: Linear, Linear
 Bush
 	index: 0
-	bounds: 67, 167, 64, 64
+	bounds: 517, 209, 64, 64
 Bush
 	index: 1
-	bounds: 517, 359, 64, 64
+	bounds: 583, 209, 64, 64
 Bush
 	index: 2
-	bounds: 583, 425, 64, 64
+	bounds: 802, 302, 64, 64
 Bush
 	index: 3
-	bounds: 1, 35, 64, 64
+	bounds: 868, 355, 64, 64
 Bush
 	index: 4
-	bounds: 67, 101, 64, 64
+	bounds: 868, 289, 64, 64
 Bush
 	index: 5
-	bounds: 133, 167, 64, 64
+	bounds: 96, 97, 64, 64
 Bush
 	index: 6
-	bounds: 517, 293, 64, 64
+	bounds: 96, 31, 64, 64
+Light1
+	index: 0
+	bounds: 1, 163, 128, 64
 Untitled 04-19-2024 09-29-06 (2)
 	index: 0
-	bounds: 1, 233, 256, 256
+	bounds: 1, 229, 256, 256
 Untitled 04-19-2024 09-29-06
 	index: 0
-	bounds: 1, 233, 256, 256
+	bounds: 1, 229, 256, 256
 Untitled 04-19-2024 09-29-06 (2)
 	index: 1
-	bounds: 259, 233, 256, 256
+	bounds: 259, 229, 256, 256
 Untitled 04-19-2024 09-29-06
 	index: 1
-	bounds: 259, 233, 256, 256
+	bounds: 259, 229, 256, 256
 animated_grass
 	index: 0
-	bounds: 1, 167, 64, 64
+	bounds: 802, 368, 64, 64
 animated_grass
 	index: 1
-	bounds: 517, 425, 64, 64
+	bounds: 897, 421, 64, 64
 back
-	bounds: 1, 101, 64, 64
+	bounds: 707, 262, 64, 64
 grass
-	bounds: 583, 391, 32, 32
+	bounds: 963, 453, 32, 32
 grass_and_road
 	index: 2
-	bounds: 1, 1, 32, 32
+	bounds: 963, 419, 32, 32
 road
-	bounds: 1, 1, 32, 32
+	bounds: 963, 419, 32, 32
 grassroad
-	bounds: 649, 457, 32, 32
+	bounds: 649, 241, 32, 32
+rabbit
+	index: 0
+	bounds: 517, 434, 93, 51
+rabbit
+	index: 1
+	bounds: 1, 110, 93, 51
+rabbit
+	index: 10
+	bounds: 131, 176, 93, 51
+rabbit
+	index: 11
+	bounds: 517, 381, 93, 51
+rabbit
+	index: 12
+	bounds: 612, 434, 93, 51
+rabbit
+	index: 13
+	bounds: 1, 57, 93, 51
+rabbit
+	index: 14
+	bounds: 226, 176, 93, 51
+rabbit
+	index: 15
+	bounds: 517, 328, 93, 51
+rabbit
+	index: 16
+	bounds: 612, 381, 93, 51
+rabbit
+	index: 17
+	bounds: 707, 434, 93, 51
+rabbit
+	index: 18
+	bounds: 1, 4, 93, 51
+rabbit
+	index: 2
+	bounds: 321, 176, 93, 51
+rabbit
+	index: 3
+	bounds: 517, 275, 93, 51
+rabbit
+	index: 4
+	bounds: 612, 328, 93, 51
+rabbit
+	index: 5
+	bounds: 707, 381, 93, 51
+rabbit
+	index: 6
+	bounds: 802, 434, 93, 51
+rabbit
+	index: 7
+	bounds: 416, 176, 93, 51
+rabbit
+	index: 8
+	bounds: 612, 275, 93, 51
+rabbit
+	index: 9
+	bounds: 707, 328, 93, 51
 white-pixel
-	bounds: 67, 98, 1, 1
+	bounds: 1, 1, 1, 1

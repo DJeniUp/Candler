@@ -65,7 +65,7 @@ public class CandlerGame extends Game {
         mAsyncResourceManager = mAssetManager.get("project.dt", AsyncResourceManager.class);
         SceneConfiguration config = new SceneConfiguration();
         config.setResourceRetriever(mAsyncResourceManager);
-        CameraSystem cameraSystem = new CameraSystem(35, 500, 20, 500);
+        CameraSystem cameraSystem = new CameraSystem(-500, 500, -500, 500);
         config.addSystem(cameraSystem);
 
 
