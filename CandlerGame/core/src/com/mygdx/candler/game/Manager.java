@@ -41,6 +41,7 @@ public class Manager extends ApplicationAdapter {
 	}
 
 	public void setLocation(String location) {
+
 		this.location = location;
 	}
 }
