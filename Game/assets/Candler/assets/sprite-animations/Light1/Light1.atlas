@@ -3,4 +3,7 @@ Light1.png
 	filter: Linear, Linear
 Light1
 	index: 0
-	bounds: 1, 1, 128, 64
+	bounds: 1, 1, 64, 64
+Light1
+	index: 1
+	bounds: 67, 1, 64, 64

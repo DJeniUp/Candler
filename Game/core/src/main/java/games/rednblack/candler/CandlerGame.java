@@ -1,6 +1,7 @@
 package games.rednblack.candler;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -25,7 +26,7 @@ import games.rednblack.editor.renderer.utils.ComponentRetriever;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class CandlerGame extends Game {
+public class CandlerGame extends ApplicationAdapter {
     private Music backgroundMusic;
     SpriteBatch batch;
     private AssetManager mAssetManager;

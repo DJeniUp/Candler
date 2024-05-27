@@ -36,10 +36,9 @@ public class CameraSystem extends IteratingSystem {
 
             if (transformComponent != null) {
 
-                float x = Math.max(xMin, Math.min(xMax, transformComponent.x));
-                float y = Math.max(yMin, Math.min(yMax, transformComponent.y + 2));
+                float x = Math.max(xMin, Math.min(xMax, transformComponent.x+20));
+                float y = Math.max(yMin, Math.min(yMax, transformComponent.y + 10));
 
-                //camera.position.set(x, y, 0);
 
                 mVector3.set(x, y, 0);
                 camera.position.lerp(mVector3, 0.1f);

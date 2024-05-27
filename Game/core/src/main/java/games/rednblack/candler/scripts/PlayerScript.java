@@ -4,15 +4,18 @@ import com.artemis.ComponentMapper;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.Fixture;
+
 import games.rednblack.candler.components.PlayerComponent;
 import games.rednblack.editor.renderer.components.DimensionsComponent;
 import games.rednblack.editor.renderer.components.MainItemComponent;
 import games.rednblack.editor.renderer.components.TransformComponent;
 import games.rednblack.editor.renderer.components.physics.PhysicsBodyComponent;
+import games.rednblack.editor.renderer.components.sprite.SpriteAnimationComponent;
 import games.rednblack.editor.renderer.physics.PhysicsContact;
 import games.rednblack.editor.renderer.scripts.BasicScript;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
@@ -64,10 +67,10 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
 
         switch (direction) {
             case LEFT:
-                impulse.set(-500, speed.y);
+                impulse.set(-250, speed.y);
                 break;
             case RIGHT:
-                impulse.set(500, speed.y);
+                impulse.set(250, speed.y);
                 break;
         }
 
@@ -79,10 +82,17 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
     public void dispose() {
 
     }
+    protected ComponentMapper<SpriteAnimationComponent> spriteMapper;
 
     @Override
     public void beginContact(int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
-
+        MainItemComponent mainItemComponent = mainItemMapper.get(contactEntity);
+        PlayerComponent playerComponent = playerMapper.get(animEntity);
+        SpriteAnimationComponent spriteAnimationComponent = spriteMapper.get(contactEntity);
+        if(mainItemComponent.itemIdentifier.contains("lighter1")){
+            //spriteAnimationComponent.currentAnimation="light";
+            mEngine.delete(contactEntity);
+        }
     }
 
     @Override
