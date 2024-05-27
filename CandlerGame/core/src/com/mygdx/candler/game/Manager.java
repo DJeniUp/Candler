@@ -11,11 +11,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import java.util.Objects;
 
 public class Manager extends ApplicationAdapter {
-	SpriteBatch batch;
-	Stage stage;
-	MainMenuArtist mainMenuArtist;
-	GameArtist gameArtist;
-	String location;
+	public SpriteBatch batch;
+	public Stage stage;
+	public MainMenuArtist mainMenuArtist;
+	public GameArtist gameArtist;
+	public String location;
 	@Override
 	public void create () {
 		location = "MainMenu";
@@ -27,19 +27,6 @@ public class Manager extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		if(Gdx.input.isButtonJustPressed(Input.Keys.ENTER)){
-			if(Objects.equals(location, "MainMenu")){
-				location="Game";
-			}
-		}
-		if(Gdx.input.isButtonJustPressed(Input.Keys.ESCAPE)){
-			if(Objects.equals(location,"MainMenu")){
-				System.exit(0);
-			}
-			if(Objects.equals(location, "Game")){
-				location="MainMenu";
-			}
-		}
 		if(Objects.equals(location, "MainMenu")){
 			mainMenuArtist.draw();
 		}
@@ -51,5 +38,9 @@ public class Manager extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		stage.dispose();
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 }

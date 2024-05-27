@@ -48,4 +48,8 @@ public class TyperArtist implements Artist, TypingProcessor {
     public void load(int possibleSentenceIndex, Vector2 coords){
         sentenceDrawers.add(new SentenceDrawer(possibleSentences.get(possibleSentenceIndex),stage,coords));
     }
+
+    public StringBuilder getTypedSentence(){
+        return typedSentence;
+    }
 }
