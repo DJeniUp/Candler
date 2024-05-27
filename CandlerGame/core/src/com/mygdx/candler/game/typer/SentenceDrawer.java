@@ -12,7 +12,7 @@ public class SentenceDrawer{
     String toTypeSentence;
     Stage stage;
     BitmapFont font;
-    public boolean done=true; // true if correctly fully typed the word (false when exists red/orange color)
+    public boolean done; // true if correctly fully typed the word (false when exists red/orange color)
     public SentenceDrawer(String toTypeSentence, Stage stage, Vector2 position) {
         this.position = position;
         this.toTypeSentence = toTypeSentence;
@@ -22,6 +22,7 @@ public class SentenceDrawer{
     }
     public void draw(String typedSentence) {
         font.setFixedWidthGlyphs(toTypeSentence);
+        done = true;
         for (int i = 0; i < toTypeSentence.length(); i++) {
             GlyphLayout c = new GlyphLayout();
             if (i < typedSentence.length()) {

@@ -8,6 +8,7 @@ import com.mygdx.candler.game.Artist;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class TyperArtist implements Artist, TypingProcessor {
     BitmapFont font;
@@ -25,7 +26,8 @@ public class TyperArtist implements Artist, TypingProcessor {
     }
     @Override
     public void draw() {
-        for(SentenceDrawer sentenceDrawer:sentenceDrawers){
+        for(int i=sentenceDrawers.size()-1;i>=0;i--){
+            SentenceDrawer sentenceDrawer = sentenceDrawers.get(i);
             sentenceDrawer.draw(typedSentence.toString());
             if(sentenceDrawer.done){
                 sentenceDrawers.remove(sentenceDrawer);
