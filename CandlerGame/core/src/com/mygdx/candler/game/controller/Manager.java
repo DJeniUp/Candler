@@ -1,12 +1,10 @@
-package com.mygdx.candler.game;
+package com.mygdx.candler.game.controller;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.candler.game.view.GameArtist;
+import com.mygdx.candler.game.view.MainMenuArtist;
 
 import java.util.Objects;
 

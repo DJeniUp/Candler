@@ -1,4 +1,4 @@
-package com.mygdx.candler.game.typer;
+package com.mygdx.candler.game.model;
 
 import com.badlogic.gdx.InputProcessor;
 

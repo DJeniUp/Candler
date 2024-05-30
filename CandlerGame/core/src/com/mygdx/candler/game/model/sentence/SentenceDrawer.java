@@ -1,4 +1,4 @@
-package com.mygdx.candler.game.typer;
+package com.mygdx.candler.game.model.sentence;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

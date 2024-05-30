@@ -1,8 +1,7 @@
-package com.mygdx.candler.game.game.objects;
+package com.mygdx.candler.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.GameArtist;
 
 public class Tile {
     final float TILEHEIGHT = 0.3f;

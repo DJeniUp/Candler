@@ -1,16 +1,15 @@
-package com.mygdx.candler.game.game.objects;
+package com.mygdx.candler.game.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.typer.TyperArtist;
+import com.mygdx.candler.game.view.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.function.Function;
 
 public class Player extends Object {
     final float ANIMATIONSPEED = 0.05f;

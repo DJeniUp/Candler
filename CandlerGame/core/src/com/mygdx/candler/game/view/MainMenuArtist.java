@@ -1,13 +1,14 @@
-package com.mygdx.candler.game;
+package com.mygdx.candler.game.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.typer.TyperArtist;
+import com.mygdx.candler.game.controller.Manager;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class MainMenuArtist implements Artist{
+public class MainMenuArtist {
     Stage stage;
     Manager manager;
     public Texture backgroundTexture;
@@ -33,7 +34,6 @@ public class MainMenuArtist implements Artist{
         typerArtist.load(0,new Vector2(0.42f,0.58f));
         typerArtist.load(1 ,new Vector2(0.42f,0.3f));
     }
-    @Override
     public void draw() {
         stage.getBatch().begin();
         stage.getBatch().draw(backgroundTexture,0,0,stage.getWidth(),stage.getHeight());

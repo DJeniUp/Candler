@@ -1,16 +1,16 @@
-package com.mygdx.candler.game.typer;
+package com.mygdx.candler.game.view;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.Artist;
+import com.mygdx.candler.game.model.sentence.SentenceDrawer;
+import com.mygdx.candler.game.model.sentence.SentenceLoader;
+import com.mygdx.candler.game.model.TypingProcessor;
 
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.function.Function;
 
-public class TyperArtist implements Artist, TypingProcessor {
+public class TyperArtist implements TypingProcessor {
     BitmapFont font;
     Stage stage;
     StringBuilder typedSentence = new StringBuilder();
@@ -24,7 +24,6 @@ public class TyperArtist implements Artist, TypingProcessor {
         possibleSentences=new ArrayList<>();
         possibleSentences.addAll(SentenceLoader.loadSentencesFromCSV(fileReader));
     }
-    @Override
     public void draw() {
         for(int i=sentenceDrawers.size()-1;i>=0;i--){
             SentenceDrawer sentenceDrawer = sentenceDrawers.get(i);
