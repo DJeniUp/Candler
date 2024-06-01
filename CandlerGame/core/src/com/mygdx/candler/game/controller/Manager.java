@@ -25,6 +25,7 @@ public class Manager extends ApplicationAdapter {
 
 	@Override
 	public void render () {
+		System.out.println(location);
 		if(Objects.equals(location, "MainMenu")){
 			mainMenuArtist.draw();
 		}

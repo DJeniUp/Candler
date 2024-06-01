@@ -1,10 +1,8 @@
-package com.mygdx.candler.game.view;
+package com.mygdx.candler.game.model.sentence;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.model.sentence.SentenceDrawer;
-import com.mygdx.candler.game.model.sentence.SentenceLoader;
 import com.mygdx.candler.game.model.TypingProcessor;
 
 import java.io.FileReader;
@@ -52,5 +50,9 @@ public class TyperArtist implements TypingProcessor {
 
     public StringBuilder getTypedSentence(){
         return typedSentence;
+    }
+
+    public void clearTyped(){
+        typedSentence=new StringBuilder();
     }
 }

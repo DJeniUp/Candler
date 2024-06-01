@@ -13,12 +13,13 @@ public class Object {
     Stage stage;
     Texture texture;
     Player player;
-    boolean trappedPlayer;
+    boolean locked;
     public Object(Vector2 position, Stage stage, String filename,Player player){
         this.pos = position;
         this.stage = stage;
         this.player=player;
         size = STANDARTSIZE;
+        locked=false;
         texture = new Texture("Game/Objects/"+filename);
     }
 
@@ -30,12 +31,12 @@ public class Object {
             stage.getBatch().draw(texture, (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
         }
-        if(trappedPlayer){
-            player.untrap();
+        if(locked){
+            player.unlock();
         }
-        if(!trappedPlayer&&abs(x-pos.x)<0.150){ //TODO make formula
-            trappedPlayer=true;
-            player.trap();
+        if(!locked&&abs(x-pos.x)<0.150){ //TODO make formula
+            locked=true;
+            player.lock();
         }
     }
 }

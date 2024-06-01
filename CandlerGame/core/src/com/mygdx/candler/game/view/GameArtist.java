@@ -1,5 +1,7 @@
 package com.mygdx.candler.game.view;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -26,6 +28,10 @@ public class GameArtist {
 //        backgroundMusic.play();
     }
     public void draw() {
+        if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
+            manager.setLocation("MainMenu");
+            return;
+        }
         stage.getBatch().begin();
         stage.getBatch().draw(backgroundTexture,0,0,stage.getWidth(),stage.getHeight());
         mapArtist.draw();

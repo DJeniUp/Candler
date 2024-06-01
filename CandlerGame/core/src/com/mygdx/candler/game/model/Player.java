@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.view.TyperArtist;
+import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,6 +32,7 @@ public class Player extends Object {
         trapped = false;
     }
     public void draw(float x){
+        Gdx.input.setInputProcessor(typerArtist);
         if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)){
             currentPosition.x -= MOVESPEED;
         }
@@ -41,23 +42,20 @@ public class Player extends Object {
         stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*0.3f,stage.getHeight()*0.2f,size.x*stage.getWidth(),size.y*stage.getHeight());
         textureIndex=(textureIndex+ANIMATIONSPEED)%textures.size();
         if(trapped){
-//            System.out.println("typer artist is supposed to draw ");
+            System.out.println("typer artist is supposed to draw ");
             typerArtist.draw();
-
         }
     }
-    public void untrap(){
+    public void unlock(){
         if(typerArtist.sentenceDrawers.isEmpty()){
+            typerArtist.clearTyped();
             trapped = false;
         }
     }
-    public void trap(){
+    public void lock(){
         try {
             typerArtist = new TyperArtist(stage,new FileReader("assets/Game/test.txt"));
             Gdx.input.setInputProcessor(typerArtist);
-            System.out.println(Gdx.input.getInputProcessor().toString());
-            System.out.println(typerArtist.toString());
-            System.out.println(typerArtist.getTypedSentence());
             typerArtist.load(0,new Vector2(0.3f,0.7f));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
