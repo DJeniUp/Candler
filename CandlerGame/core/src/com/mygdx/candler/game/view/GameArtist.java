@@ -23,8 +23,8 @@ public class GameArtist {
         mapArtist = new MapArtist(stage,player);
         objectsArtist = new ObjectsArtist(stage,player);
         Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
-        backgroundMusic.setLooping(true);
-        backgroundMusic.play();
+//        backgroundMusic.setLooping(true);
+//        backgroundMusic.play();
     }
     public void draw() {
         if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){

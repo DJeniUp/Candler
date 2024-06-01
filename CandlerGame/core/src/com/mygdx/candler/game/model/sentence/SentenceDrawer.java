@@ -27,13 +27,13 @@ public class SentenceDrawer{
             GlyphLayout c = new GlyphLayout();
             if (i < typedSentence.length()) {
                 if (typedSentence.charAt(i) == toTypeSentence.charAt(i)) {
-                    font.setColor(Color.WHITE);
+                    font.setColor(Config.correctlyTyped);
                 } else {
-                    font.setColor(Color.RED);
+                    font.setColor(Config.incorrectlyTyped);
                     done = false;
                 }
             } else {
-                font.setColor(Color.ORANGE);
+                font.setColor(Config.notTyped);
                 done = false;
             }
             c.setText(font, String.valueOf(toTypeSentence.charAt(i)));
