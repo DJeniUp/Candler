@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
@@ -12,9 +13,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Player extends Object {
-    final float ANIMATIONSPEED = 0.05f;
-    final static float MOVESPEED = 0.005f;
-    final static Vector2 INITIALPOS = new Vector2(0.5f,0.3f);
     final Vector2 size = new Vector2(0.2f,0.2f);
     public Vector2 currentPosition;
     ArrayList<Texture> textures;
@@ -23,7 +21,7 @@ public class Player extends Object {
     boolean trapped;
     TyperArtist typerArtist;
     public Player(Stage stage){
-        currentPosition = new Vector2(INITIALPOS.x,INITIALPOS.y);
+        currentPosition = Config.startingPosition;
         this.stage = stage;
         textures = new ArrayList<>();
         textures.add(new Texture("Game/candler_1.png"));
@@ -34,13 +32,13 @@ public class Player extends Object {
     public void draw(float x){
         Gdx.input.setInputProcessor(typerArtist);
         if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            currentPosition.x -= MOVESPEED;
+            currentPosition.x -= Config.moveSpeed;
         }
         if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            currentPosition.x += MOVESPEED;
+            currentPosition.x += Config.moveSpeed;
         }
         stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*0.3f,stage.getHeight()*0.2f,size.x*stage.getWidth(),size.y*stage.getHeight());
-        textureIndex=(textureIndex+ANIMATIONSPEED)%textures.size();
+        textureIndex=(textureIndex+ Config.animationSpeed)%textures.size();
         if(trapped){
             System.out.println("typer artist is supposed to draw ");
             typerArtist.draw();

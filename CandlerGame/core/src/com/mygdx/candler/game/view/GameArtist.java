@@ -15,7 +15,6 @@ public class GameArtist {
     Texture backgroundTexture;
     MapArtist mapArtist;
     ObjectsArtist objectsArtist;
-    private Music backgroundMusic;
     public GameArtist(Stage stage, Manager manager){
         this.stage=stage;
         this.manager=manager;
@@ -23,9 +22,9 @@ public class GameArtist {
         backgroundTexture = new Texture("Game/back.png");
         mapArtist = new MapArtist(stage,player);
         objectsArtist = new ObjectsArtist(stage,player);
-//        backgroundMusic= Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
-//        backgroundMusic.setLooping(true);
-//        backgroundMusic.play();
+        Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
+        backgroundMusic.setLooping(true);
+        backgroundMusic.play();
     }
     public void draw() {
         if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){

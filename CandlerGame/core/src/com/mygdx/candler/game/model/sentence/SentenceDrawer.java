@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 
 public class SentenceDrawer{
-    final static float LETTERWIDTHFRACTION = 0.04f;
     Vector2 position;
     String toTypeSentence;
     Stage stage;
@@ -18,7 +18,7 @@ public class SentenceDrawer{
         this.toTypeSentence = toTypeSentence;
         this.stage = stage;
         this.font = new BitmapFont();
-        font.getData().setScale(3);
+        font.getData().setScale(Config.letterScale);
     }
     public void draw(String typedSentence) {
         font.setFixedWidthGlyphs(toTypeSentence);
@@ -37,7 +37,9 @@ public class SentenceDrawer{
                 done = false;
             }
             c.setText(font, String.valueOf(toTypeSentence.charAt(i)));
-            font.draw(stage.getBatch(), c, (position.x+i*LETTERWIDTHFRACTION)*stage.getWidth(), position.y*stage.getHeight());
+            float x= position.x + Config.letterWidth * i;
+            float y= position.y;
+            font.draw(stage.getBatch(), c, x*stage.getWidth(), y*stage.getHeight());
         }
     }
 }

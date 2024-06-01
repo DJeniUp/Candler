@@ -3,11 +3,11 @@ package com.mygdx.candler.game.model;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 
 import static java.lang.Math.abs;
 
 public class Object {
-    final Vector2 STANDARTSIZE = new Vector2(0.5f, 0.5f);
     Vector2 pos;
     Vector2 size;
     Stage stage;
@@ -18,7 +18,7 @@ public class Object {
         this.pos = position;
         this.stage = stage;
         this.player=player;
-        size = STANDARTSIZE;
+        size = Config.defaultObjectSize;
         locked=false;
         texture = new Texture("Game/Objects/"+filename);
     }
