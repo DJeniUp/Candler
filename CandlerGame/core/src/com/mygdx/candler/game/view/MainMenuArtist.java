@@ -3,6 +3,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Locations;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.sentence.TyperArtist;
 
@@ -45,7 +46,7 @@ public class MainMenuArtist {
         System.out.println(typerArtist.getTypedSentence());
         if(typerArtist.getTypedSentence().toString().equals("play")){
             update();
-            manager.setLocation("Game");
+            manager.setLocation(Locations.Game);
         }
         if(typerArtist.getTypedSentence().toString().equals("exit")){
             typerArtist.clearTyped();

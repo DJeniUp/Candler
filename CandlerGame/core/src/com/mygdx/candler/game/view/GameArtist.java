@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Locations;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.Player;
 
@@ -28,7 +29,7 @@ public class GameArtist {
     }
     public void draw() {
         if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
-            manager.setLocation("MainMenu");
+            manager.setLocation(Locations.MainMenu);
             return;
         }
         stage.getBatch().begin();
