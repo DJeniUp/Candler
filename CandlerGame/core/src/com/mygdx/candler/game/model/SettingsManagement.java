@@ -2,6 +2,7 @@ package com.mygdx.candler.game.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.candler.game.Config;
@@ -32,6 +33,8 @@ public class SettingsManagement {
     }
     public void keyDown(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
+            Music music=Gdx.audio.newMusic(Gdx.files.internal("music/pick.mp3"));
+            music.play();
             if(position==2){
                 return;
             }
@@ -40,6 +43,8 @@ public class SettingsManagement {
     }
     public void keyUp(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
+            Music music=Gdx.audio.newMusic(Gdx.files.internal("music/pick.mp3"));
+            music.play();
             if(position==0){
                 return;
             }
@@ -48,6 +53,8 @@ public class SettingsManagement {
     }
     public void keyLeft(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
+            Music music=Gdx.audio.newMusic(Gdx.files.internal("music/pick.mp3"));
+            music.play();
             if(possibleColorIndexes.get(position)==0){
                 possibleColorIndexes.set(position,possibleColors.size()-1);
             }else{
@@ -57,6 +64,8 @@ public class SettingsManagement {
     }
     public void keyRight(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)){
+            Music music=Gdx.audio.newMusic(Gdx.files.internal("music/pick.mp3"));
+            music.play();
             if(possibleColorIndexes.get(position)==possibleColors.size()-1){
                 possibleColorIndexes.set(position,0);
             }else{
