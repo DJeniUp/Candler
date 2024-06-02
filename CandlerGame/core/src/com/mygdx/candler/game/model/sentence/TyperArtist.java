@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.model.TypingProcessor;
 
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class TyperArtist implements TypingProcessor {
@@ -21,6 +22,12 @@ public class TyperArtist implements TypingProcessor {
         sentenceDrawers=new ArrayList<>();
         possibleSentences=new ArrayList<>();
         possibleSentences.addAll(SentenceLoader.loadSentencesFromCSV(fileReader));
+    }
+    public TyperArtist(Stage stage, ArrayList<String>possibleSentences) {
+        this.stage=stage;
+        font = new BitmapFont();
+        sentenceDrawers=new ArrayList<>();
+        this.possibleSentences=possibleSentences;
     }
     public void draw() {
         for(int i=sentenceDrawers.size()-1;i>=0;i--){
