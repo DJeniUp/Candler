@@ -37,6 +37,9 @@ public class SentenceDrawer{
                 done = false;
             }
             c.setText(font, String.valueOf(toTypeSentence.charAt(i)));
+            if(i<typedSentence.length() && toTypeSentence.charAt(i) == ' ') {
+                c.setText(font,"_");
+            }
             float x= position.x + Config.letterWidth * i;
             float y= position.y;
             font.draw(stage.getBatch(), c, x*stage.getWidth(), y*stage.getHeight());

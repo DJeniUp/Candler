@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Locations;
 import com.mygdx.candler.game.view.GameArtist;
 import com.mygdx.candler.game.view.MainMenuArtist;
+import com.mygdx.candler.game.view.SettingArtist;
 
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ public class Manager extends ApplicationAdapter {
 	public Stage stage;
 	public MainMenuArtist mainMenuArtist;
 	public GameArtist gameArtist;
+	public SettingArtist settingArtist;
 	public Locations location;
 	@Override
 	public void create () {
@@ -22,6 +24,7 @@ public class Manager extends ApplicationAdapter {
 		batch = (SpriteBatch) stage.getBatch();
 		mainMenuArtist = new MainMenuArtist(stage,this);
 		gameArtist = new GameArtist(stage,this);
+		settingArtist = new SettingArtist(stage,this);
 	}
 
 	@Override
@@ -33,7 +36,9 @@ public class Manager extends ApplicationAdapter {
 		if(location==Locations.Game) {
 			gameArtist.draw();
 		}
-
+		if(location==Locations.Settings){
+			settingArtist.draw();
+		}
 	}
 	
 	@Override

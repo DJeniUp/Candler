@@ -16,7 +16,6 @@ public class MainMenuArtist {
     public Texture backgroundTexture;
     TyperArtist typerArtist;
     Texture buttonBg;
-
     public MainMenuArtist(Stage stage, Manager manager){
         this.stage=stage;
         this.manager=manager;
@@ -33,14 +32,15 @@ public class MainMenuArtist {
     public void update(){
         typerArtist.clearTyped();
         typerArtist.sentenceDrawers.clear();
-        typerArtist.load(0,new Vector2(0.42f,0.58f));
+        typerArtist.load(0,new Vector2(0.42f,0.9f));
         typerArtist.load(1 ,new Vector2(0.42f,0.3f));
+        typerArtist.load(2,new Vector2(0.36f,0.6f));
     }
     public void draw() {
         Gdx.input.setInputProcessor(typerArtist);
         stage.getBatch().begin();
         stage.getBatch().draw(backgroundTexture,0,0,stage.getWidth(),stage.getHeight());
-        stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.47f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
+        stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.79f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
         stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.19f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
         typerArtist.draw();
         System.out.println(typerArtist.getTypedSentence());
@@ -51,6 +51,10 @@ public class MainMenuArtist {
         if(typerArtist.getTypedSentence().toString().equals("exit")){
             typerArtist.clearTyped();
             Gdx.app.exit();
+        }
+        if(typerArtist.getTypedSentence().toString().equals("settings")){
+            update();
+            manager.setLocation(Locations.Settings);
         }
         stage.getBatch().end();
     }
