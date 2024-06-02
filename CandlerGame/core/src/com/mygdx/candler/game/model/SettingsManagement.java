@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.candler.game.Config;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,10 +26,7 @@ public class SettingsManagement {
         possibleColors.add(new Texture("Settings/orange.png"));
         possibleColors.add(new Texture("Settings/yellow.png"));
         possibleColors.add(new Texture("Settings/white.png"));
-        possibleColorIndexes = new ArrayList<>();
-        possibleColorIndexes.add(5);
-        possibleColorIndexes.add(7);
-        possibleColorIndexes.add(3);
+        possibleColorIndexes = new ArrayList<>(Arrays.asList(5, 7, 3));
         position=0;
     }
     public void keyDown(){

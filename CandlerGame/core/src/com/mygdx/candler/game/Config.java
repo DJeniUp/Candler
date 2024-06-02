@@ -17,7 +17,12 @@ public class Config {
     //Player
     public static float animationSpeed=0.05f;
     public static float moveSpeed=0.005f;
-    public static Vector2 startingPosition=new Vector2(0.5f,0.3f);
+    public static Vector2 startingPosition=new Vector2(0.0f,0.3f);
+    public static Vector2 playerSize=new Vector2(0.2f,0.2f);
+
+    //Instructor
+    public static Vector2 instructorSize=new Vector2(0.3f,0.25f);
+    public static Vector2 instructorPosition=new Vector2(0.5f,0.22f);
 
     //Tile
     public final static float tileHeight = 0.3f;

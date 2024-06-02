@@ -13,7 +13,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Player extends Object {
-    final Vector2 size = new Vector2(0.2f,0.2f);
     public Vector2 currentPosition;
     ArrayList<Texture> textures;
     float textureIndex;
@@ -37,7 +36,7 @@ public class Player extends Object {
         if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             currentPosition.x += Config.moveSpeed;
         }
-        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*0.3f,stage.getHeight()*0.2f,size.x*stage.getWidth(),size.y*stage.getHeight());
+        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*0.3f,stage.getHeight()*0.2f,Config.playerSize.x*stage.getWidth(),Config.playerSize.y*stage.getHeight());
         textureIndex=(textureIndex+ Config.animationSpeed)%textures.size();
         if(trapped){
             System.out.println("typer artist is supposed to draw ");

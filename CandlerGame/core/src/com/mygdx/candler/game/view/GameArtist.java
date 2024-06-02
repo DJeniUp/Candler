@@ -16,6 +16,7 @@ public class GameArtist {
     Texture backgroundTexture;
     MapArtist mapArtist;
     ObjectsArtist objectsArtist;
+    InstructorArtist instructorArtist;
     public GameArtist(Stage stage, Manager manager){
         this.stage=stage;
         this.manager=manager;
@@ -23,6 +24,7 @@ public class GameArtist {
         backgroundTexture = new Texture("Game/back.png");
         mapArtist = new MapArtist(stage,player);
         objectsArtist = new ObjectsArtist(stage,player);
+        instructorArtist = new InstructorArtist(stage,player);
         Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
 //        backgroundMusic.setLooping(true);
 //        backgroundMusic.play();
@@ -36,6 +38,7 @@ public class GameArtist {
         stage.getBatch().draw(backgroundTexture,0,0,stage.getWidth(),stage.getHeight());
         mapArtist.draw();
         objectsArtist.draw();
+        instructorArtist.draw();
         player.draw(player.currentPosition.x);
         stage.getBatch().end();
     }
