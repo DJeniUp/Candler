@@ -3,12 +3,10 @@ package com.mygdx.candler.game.model;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
-import com.mygdx.candler.game.model.sentence.TyperArtist;
+import com.mygdx.candler.game.view.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -53,7 +51,7 @@ public class Player extends Object {
     }
     public void lock(){
         try {
-            typerArtist = new TyperArtist(stage,new FileReader("assets/Game/test.txt"));
+            typerArtist = new TyperArtist(stage,new FileReader("assets/Game/test.txt"), 30);
             Gdx.input.setInputProcessor(typerArtist);
             typerArtist.load(0,new Vector2(0.3f,0.7f));
         } catch (FileNotFoundException e) {

@@ -3,12 +3,9 @@ package com.mygdx.candler.game.controller;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mygdx.candler.game.Locations;
 import com.mygdx.candler.game.view.GameArtist;
 import com.mygdx.candler.game.view.MainMenuArtist;
 import com.mygdx.candler.game.view.SettingArtist;
-
-import java.util.Objects;
 
 public class Manager extends ApplicationAdapter {
 	public SpriteBatch batch;

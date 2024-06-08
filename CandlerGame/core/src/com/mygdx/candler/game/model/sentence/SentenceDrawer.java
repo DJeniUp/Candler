@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 
-public class SentenceDrawer{
+public class SentenceDrawer {
     Vector2 position;
     String toTypeSentence;
     Stage stage;

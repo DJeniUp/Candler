@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.mygdx.candler.game.Locations;
+import com.mygdx.candler.game.controller.Locations;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.SettingsManagement;
 
