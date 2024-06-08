@@ -1,22 +1,22 @@
-#version 330 core
+#ifdef GL_ES
+precision mediump float;
+#endif
 
-in vec4 v_color; // The input color from the vertex shader.
-in vec2 v_texCoord; // The input texture coordinate from the vertex shader.
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
 
-out vec4 FragColor; // The output color of the fragment.
+varying vec2 v_texCoord;
 
-uniform sampler2D u_texture; // The texture sampler.
-uniform vec2 u_lightPos; // The position of the light source.
-uniform vec3 u_lightColor; // The color of the light.
-uniform float u_lightRadius; // The radius of the light.
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    vec3 color = vec3(0.0);
 
-void main()
-{
-    vec4 texColor = texture(u_texture, v_texCoord); // Sample the texture color.
+    // Distance from the center
+    float d = distance(st, u_mouse / u_resolution);
 
-    float dist = distance(gl_FragCoord.xy, u_lightPos); // Calculate the distance from the fragment to the light source.
-    float intensity = 1.0 - smoothstep(u_lightRadius - 10.0, u_lightRadius, dist); // Calculate the light intensity.
+    // Create a circular light effect
+    color = vec3(1.0 - d);
 
-    vec3 finalColor = texColor.rgb + u_lightColor * intensity; // Add the light color based on intensity.
-    FragColor = vec4(finalColor, texColor.a); // Set the final fragment color.
+    gl_FragColor = vec4(color, 1.0);
 }
