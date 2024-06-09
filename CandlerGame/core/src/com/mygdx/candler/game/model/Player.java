@@ -6,20 +6,23 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
-import com.mygdx.candler.game.view.TyperArtist;
+import com.mygdx.candler.game.controller.Manager;
+import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Player extends Object {
+    Manager manager;
     public Vector2 currentPosition;
     ArrayList<Texture> textures;
     float textureIndex;
     Stage stage;
     boolean trapped;
     TyperArtist typerArtist;
-    public Player(Stage stage){
+    public Player(Manager manager, Stage stage){
+        this.manager=manager;
         currentPosition = Config.startingPosition;
         this.stage = stage;
         textures = new ArrayList<>();
@@ -51,7 +54,7 @@ public class Player extends Object {
     }
     public void lock(){
         try {
-            typerArtist = new TyperArtist(stage,new FileReader("assets/Game/test.txt"), 30);
+            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10);
             Gdx.input.setInputProcessor(typerArtist);
             typerArtist.load(0,new Vector2(0.3f,0.7f));
         } catch (FileNotFoundException e) {

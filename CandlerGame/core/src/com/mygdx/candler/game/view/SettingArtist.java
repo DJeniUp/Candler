@@ -11,8 +11,8 @@ import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.SettingsManagement;
 
 public class SettingArtist {
-    Stage stage;
     Manager manager;
+    Stage stage;
     SettingsManagement settingsManagement;
     BitmapFont font;
     public SettingArtist(Stage stage, Manager manager) {
@@ -20,7 +20,7 @@ public class SettingArtist {
         font.getData().setScale(1.7f);
         this.stage = stage;
         this.manager = manager;
-        settingsManagement = new SettingsManagement();
+        settingsManagement = new SettingsManagement(manager);
     }
     public void draw(){
         ScreenUtils.clear(0, 0, 0, 0);

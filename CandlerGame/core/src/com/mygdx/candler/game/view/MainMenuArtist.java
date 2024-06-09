@@ -5,13 +5,14 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.controller.Locations;
 import com.mygdx.candler.game.controller.Manager;
+import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class MainMenuArtist {
-    Stage stage;
     Manager manager;
+    Stage stage;
     public Texture backgroundTexture;
     TyperArtist typerArtist;
     Texture buttonBg;
@@ -20,7 +21,7 @@ public class MainMenuArtist {
         this.manager=manager;
         try {
             FileReader temp= new FileReader("assets/MainMenu/sentences.txt");
-            typerArtist=new TyperArtist(stage,temp, 60);
+            typerArtist=new TyperArtist(manager, stage,temp, 60);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

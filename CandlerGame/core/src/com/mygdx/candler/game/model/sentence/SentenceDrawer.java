@@ -8,14 +8,17 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
+import com.mygdx.candler.game.controller.Manager;
 
 public class SentenceDrawer {
+    Manager manager;
     Vector2 position;
     String toTypeSentence;
     Stage stage;
     BitmapFont font;
     public boolean done; // true if correctly fully typed the word (false when exists red/orange color)
-    public SentenceDrawer(String toTypeSentence, Stage stage, Vector2 position) {
+    public SentenceDrawer(Manager manager, String toTypeSentence, Stage stage, Vector2 position) {
+        this.manager=manager;
         this.position = position;
         this.toTypeSentence = toTypeSentence;
         this.stage = stage;

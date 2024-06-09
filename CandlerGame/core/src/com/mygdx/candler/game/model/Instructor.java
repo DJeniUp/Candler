@@ -5,14 +5,17 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.mygdx.candler.game.Config;
+import com.mygdx.candler.game.controller.Manager;
 
 public class Instructor {
+    Manager manager;
     Vector2 pos;
     Vector2 size;
     Stage stage;
     Texture texture;
     Player player;
-    public Instructor(Vector2 pos, Stage stage, String filename, Player player) {
+    public Instructor(Manager manager, Vector2 pos, Stage stage, String filename, Player player) {
+        this.manager=manager;
         this.pos = pos;
         this.stage = stage;
         this.player = player;

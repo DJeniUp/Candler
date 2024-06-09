@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.candler.game.Config;
+import com.mygdx.candler.game.controller.Manager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,10 +14,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class SettingsManagement {
+    Manager manager;
     public List<Texture> possibleColors;
     public List<Integer> possibleColorIndexes;
     public int position;
-    public SettingsManagement(){
+    public SettingsManagement(Manager manager){
+        this.manager = manager;
         possibleColors = new ArrayList<>();
         possibleColors.add(new Texture("Settings/green.png"));
         possibleColors.add(new Texture("Settings/blue.png"));

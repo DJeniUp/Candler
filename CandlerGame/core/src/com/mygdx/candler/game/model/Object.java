@@ -4,17 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
+import com.mygdx.candler.game.controller.Manager;
 
 import static java.lang.Math.abs;
 
 public class Object {
+    Manager manager;
     Vector2 pos;
     Vector2 size;
     Stage stage;
     Texture texture;
     Player player;
     boolean locked;
-    public Object(Vector2 position, Stage stage, String filename,Player player){
+    public Object(Manager manager, Vector2 position, Stage stage, String filename,Player player){
+        this.manager = manager;
         this.pos = position;
         this.stage = stage;
         this.player=player;

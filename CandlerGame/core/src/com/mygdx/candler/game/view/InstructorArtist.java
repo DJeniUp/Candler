@@ -3,6 +3,7 @@ package com.mygdx.candler.game.view;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
+import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.Instructor;
 import com.mygdx.candler.game.model.Object;
 import com.mygdx.candler.game.model.Player;
@@ -10,14 +11,15 @@ import com.mygdx.candler.game.model.Player;
 import java.util.ArrayList;
 
 public class InstructorArtist {
+    Manager manager;
     Stage stage;
     Player player;
     ArrayList<Instructor> instructors;
-    public InstructorArtist(Stage stage, Player player){
+    public InstructorArtist(Manager manager, Stage stage, Player player){
         this.stage = stage;
         this.player= player;
         instructors = new ArrayList<>();
-        instructors.add(new Instructor(Config.instructorPosition,stage,"instructor.png",player));
+        instructors.add(new Instructor(manager, Config.instructorPosition,stage,"instructor.png",player));
     }
     public void draw(){
         instructors.get(0).draw(player.currentPosition.x);

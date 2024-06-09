@@ -10,8 +10,8 @@ import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.Player;
 
 public class GameArtist {
-    Stage stage;
     Manager manager;
+    Stage stage;
     public Player player;
     Texture backgroundTexture;
     MapArtist mapArtist;
@@ -20,11 +20,11 @@ public class GameArtist {
     public GameArtist(Stage stage, Manager manager){
         this.stage=stage;
         this.manager=manager;
-        player = new Player(stage);
+        player = new Player(manager, stage);
         backgroundTexture = new Texture("Game/back.png");
-        mapArtist = new MapArtist(stage,player);
-        objectsArtist = new ObjectsArtist(stage,player);
-        instructorArtist = new InstructorArtist(stage,player);
+        mapArtist = new MapArtist(manager, stage,player);
+        objectsArtist = new ObjectsArtist(manager, stage,player);
+        instructorArtist = new InstructorArtist(manager, stage,player);
         Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
 //        backgroundMusic.setLooping(true);
 //        backgroundMusic.play();
