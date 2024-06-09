@@ -43,7 +43,6 @@ public class MainMenuArtist {
         stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.79f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
         stage.getBatch().draw(buttonBg,0.41f*stage.getWidth(),0.19f*stage.getHeight(),0.18f*stage.getWidth(),0.13f*stage.getHeight());
         typerArtist.draw();
-        System.out.println(typerArtist.getTypedSentence());
         if(typerArtist.getTypedSentence().toString().equals("play")){
             update();
             manager.setLocation(Locations.Game);

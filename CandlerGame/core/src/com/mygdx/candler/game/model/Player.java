@@ -21,6 +21,7 @@ public class Player extends Object {
     Stage stage;
     boolean trapped;
     TyperArtist typerArtist;
+    boolean headingRight = true;
     public Player(Manager manager, Stage stage){
         this.manager=manager;
         currentPosition = Config.startingPosition;
@@ -33,13 +34,15 @@ public class Player extends Object {
     }
     public void draw(float x){
         Gdx.input.setInputProcessor(typerArtist);
-        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)&&currentPosition.x>=Config.leftMapBound){
             currentPosition.x -= Config.moveSpeed;
+            headingRight = false;
         }
         if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             currentPosition.x += Config.moveSpeed;
+            headingRight = true;
         }
-        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*0.3f,stage.getHeight()*0.2f,Config.playerSize.x*stage.getWidth(),Config.playerSize.y*stage.getHeight());
+        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*(0.3f+(headingRight?0:Config.playerAnimationDelta)),stage.getHeight()*0.2f,(headingRight?1:-1)* Config.playerSize.x*stage.getWidth(),Config.playerSize.y*stage.getHeight());
         textureIndex=(textureIndex+ Config.animationSpeed)%textures.size();
         if(trapped){
             System.out.println("typer artist is supposed to draw ");

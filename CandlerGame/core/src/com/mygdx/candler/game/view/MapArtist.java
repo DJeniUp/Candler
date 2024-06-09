@@ -20,7 +20,6 @@ public class MapArtist {
         tiles.add(new Tile(manager, "map.png",0,4.0f,stage));
     }
     public void draw() {
-        System.out.println(player.currentPosition.x);
         tiles.get(0).draw(player.currentPosition.x); // Currently we only have one map. Later, we'll go through array by for-cycle
     }
 }

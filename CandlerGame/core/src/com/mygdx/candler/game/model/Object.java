@@ -6,6 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 
+import java.util.ArrayList;
+
 import static java.lang.Math.abs;
 
 public class Object {
@@ -13,31 +15,37 @@ public class Object {
     Vector2 pos;
     Vector2 size;
     Stage stage;
-    Texture texture;
+    ArrayList<Texture> textures;
+    int textureIndex = 0;
     Player player;
     boolean locked;
-    public Object(Manager manager, Vector2 position, Stage stage, String filename,Player player){
+    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
         this.manager = manager;
         this.pos = position;
         this.stage = stage;
         this.player=player;
         size = Config.defaultObjectSize;
         locked=false;
-        texture = new Texture("Game/Objects/"+filename);
+        textures = new ArrayList<>();
+        for(String i:filenames)
+            textures.add(new Texture("Game/Objects/"+i));
+    }
+    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player,Vector2 size){
+        this(manager,position,stage,filenames,player);
+        this.size = size;
     }
 
-    public Object() {
-    }
-
+    public Object(){}
+    public void changeTexture(){ textureIndex = (textureIndex+1)%textures.size();}
     public void draw(float x){
         if(x-pos.x<1.2) {
-            stage.getBatch().draw(texture, (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
+            stage.getBatch().draw(textures.get(textureIndex), (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
         }
         if(locked){
             player.unlock();
         }
-        if(!locked&&abs(x-pos.x)<0.150){ //TODO make formula
+        if(!locked&&abs(x-pos.x)<size.x){
             locked=true;
             player.lock();
         }
