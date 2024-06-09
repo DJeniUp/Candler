@@ -54,7 +54,7 @@ public class Player extends Object {
     }
     public void lock(){
         try {
-            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10);
+            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10, true);
             Gdx.input.setInputProcessor(typerArtist);
             typerArtist.load(0,new Vector2(0.3f,0.7f));
         } catch (FileNotFoundException e) {

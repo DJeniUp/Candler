@@ -15,15 +15,24 @@ public class Timer{
     private final int countdown;
     private int curCountdown;
     private float timeSeconds;
-    public Timer(Manager manager, Stage stage, int countdown) {
+    private boolean flag; //true iff need to draw
+    public Timer(Manager manager, Stage stage, int countdown, boolean flag) {
         this.manager=manager;
         this.stage = stage;
         font=new BitmapFont();
         font.getData().setScale(Config.letterScale);
-        font.setColor(Color.MAROON);
+        font.setColor(Color.WHITE);
         this.countdown=countdown;
         timeSeconds=0;
         curCountdown=countdown;
+        this.flag=flag;
+    }
+    public String transform(int x){
+        if(x/10>0){
+            return ""+x;
+        }else{
+            return "0"+x;
+        }
     }
     public void draw() {
         timeSeconds+=Gdx.graphics.getDeltaTime();
@@ -32,10 +41,12 @@ public class Timer{
             timeSeconds=0;
         }
         if(curCountdown==0){
-            manager.setLocation(Locations.MainMenu);
+            Manager.mistakes++;
             curCountdown=countdown;
             return;
         }
-        font.draw(stage.getBatch(),""+curCountdown,0.05f*stage.getWidth(),0.95f* stage.getHeight());
+        if(flag){
+            font.draw(stage.getBatch(),transform(curCountdown),0.45f*stage.getWidth(),0.90f* stage.getHeight());
+        }
     }
 }

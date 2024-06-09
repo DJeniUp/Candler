@@ -17,18 +17,21 @@ public class TyperArtist implements TypingProcessor {
     public ArrayList<SentenceDrawer> sentenceDrawers;
     ArrayList<String> possibleSentences;
     Timer timer;
-    public TyperArtist(Manager manager, Stage stage, FileReader fileReader, int countdown) {
+    boolean flag;
+    public TyperArtist(Manager manager, Stage stage, FileReader fileReader, int countdown, boolean flag) {
         this.manager = manager;
-        timer=new Timer(manager, stage, countdown);
+        this.flag = flag;
+        timer=new Timer(manager, stage, countdown,flag);
         this.stage=stage;
         font = new BitmapFont();
         sentenceDrawers=new ArrayList<>();
         possibleSentences=new ArrayList<>();
         possibleSentences.addAll(SentenceLoader.loadSentencesFromCSV(fileReader));
     }
-    public TyperArtist(Manager manager, Stage stage, ArrayList<String>possibleSentences,int countdown) {
+    public TyperArtist(Manager manager, Stage stage, ArrayList<String>possibleSentences,int countdown,boolean flag) {
         this.manager=manager;
-        timer=new Timer(manager, stage, countdown);
+        this.flag = flag;
+        timer=new Timer(manager, stage, countdown, flag);
         this.stage=stage;
         font = new BitmapFont();
         sentenceDrawers=new ArrayList<>();

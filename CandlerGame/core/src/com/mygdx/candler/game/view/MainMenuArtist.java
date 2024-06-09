@@ -21,7 +21,7 @@ public class MainMenuArtist {
         this.manager=manager;
         try {
             FileReader temp= new FileReader("assets/MainMenu/sentences.txt");
-            typerArtist=new TyperArtist(manager, stage,temp, 60);
+            typerArtist=new TyperArtist(manager, stage,temp, 60, false);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

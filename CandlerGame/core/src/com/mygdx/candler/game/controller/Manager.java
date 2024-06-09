@@ -14,6 +14,7 @@ public class Manager extends ApplicationAdapter {
 	public GameArtist gameArtist;
 	public SettingArtist settingArtist;
 	public Locations location;
+	public static int mistakes;
 	@Override
 	public void create () {
 		location = Locations.MainMenu;
@@ -22,6 +23,7 @@ public class Manager extends ApplicationAdapter {
 		mainMenuArtist = new MainMenuArtist(stage,this);
 		gameArtist = new GameArtist(stage,this);
 		settingArtist = new SettingArtist(stage,this);
+		mistakes = 0;
 	}
 
 	@Override

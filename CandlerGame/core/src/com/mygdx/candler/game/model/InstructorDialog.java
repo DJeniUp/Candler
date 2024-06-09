@@ -22,7 +22,7 @@ public class InstructorDialog {
         this.player=player;
         this.stage = stage;
         this.instructor = instructor;
-        typerArtist=new TyperArtist(manager, stage,new ArrayList<>(Arrays.asList("Thank you")),1000);
+        typerArtist=new TyperArtist(manager, stage,new ArrayList<>(Arrays.asList("Thank you")),1000,false);
         typerArtist.load(0,player.currentPosition);
     }
     public void draw(){
