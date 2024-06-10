@@ -63,6 +63,9 @@ public class Player extends Object {
     }
     public void lock(Object receiver){
         this.receiver = receiver;
+        lock();
+    }
+    public void lock(){
         try {
             typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10, true);
             Gdx.input.setInputProcessor(typerArtist);

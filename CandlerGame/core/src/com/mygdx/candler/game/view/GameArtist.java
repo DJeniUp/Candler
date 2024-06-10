@@ -18,6 +18,7 @@ public class GameArtist {
     MapArtist mapArtist;
     ObjectsArtist objectsArtist;
     InstructorArtist instructorArtist;
+    public Music backgroundMusic;
     public GameArtist(Stage stage, Manager manager){
         this.stage=stage;
         this.manager=manager;
@@ -27,7 +28,7 @@ public class GameArtist {
         mapArtist = new MapArtist(manager, stage,player);
         objectsArtist = new ObjectsArtist(manager, stage,player);
         instructorArtist = new InstructorArtist(manager, stage,player);
-        Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
+        backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background.mp3"));
         backgroundMusic.setLooping(true);
         backgroundMusic.play();
     }

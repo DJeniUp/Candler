@@ -4,10 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.controller.Manager;
-import com.mygdx.candler.game.model.Boat;
+import com.mygdx.candler.game.model.*;
 import com.mygdx.candler.game.model.Object;
-import com.mygdx.candler.game.model.Player;
-import com.mygdx.candler.game.model.Tile;
 
 import java.util.ArrayList;
 
@@ -37,6 +35,7 @@ public class Config {
         objects.add(new Object(manager, new Vector2(2.6f,0.15f),stage,new String[]{"Lighter2_0_ocean.png","Lighter2_1_ocean_1.png"},player));
         objects.add(new Object(manager, new Vector2(2.8f,0.11f),stage,new String[]{"Light1_0_ocean_2.png","Light1_1_blue.png"},
                 player, new Vector2(0.18f,0.18f)));
+        objects.add(new Portal(manager, new Vector2(3.19f,0.05f),stage,new String[]{"portal.png"}, player));
     }
     //Boat
     public static Vector2 boatSize=new Vector2(0.3f,0.4f);

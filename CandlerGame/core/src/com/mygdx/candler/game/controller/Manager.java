@@ -3,6 +3,7 @@ package com.mygdx.candler.game.controller;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.view.EndScreenArtist;
 import com.mygdx.candler.game.view.GameArtist;
 import com.mygdx.candler.game.view.MainMenuArtist;
 import com.mygdx.candler.game.view.SettingArtist;
@@ -13,6 +14,7 @@ public class Manager extends ApplicationAdapter {
 	public MainMenuArtist mainMenuArtist;
 	public GameArtist gameArtist;
 	public SettingArtist settingArtist;
+	public EndScreenArtist endScreenArtist;
 	public Locations location;
 	public static int mistakes;
 	@Override
@@ -23,6 +25,7 @@ public class Manager extends ApplicationAdapter {
 		mainMenuArtist = new MainMenuArtist(stage,this);
 		gameArtist = new GameArtist(stage,this);
 		settingArtist = new SettingArtist(stage,this);
+		endScreenArtist = new EndScreenArtist(stage,this);
 		mistakes = 0;
 	}
 
@@ -36,6 +39,9 @@ public class Manager extends ApplicationAdapter {
 		}
 		if(location==Locations.Settings){
 			settingArtist.draw();
+		}
+		if(location==Locations.End){
+			endScreenArtist.draw();
 		}
 	}
 	
