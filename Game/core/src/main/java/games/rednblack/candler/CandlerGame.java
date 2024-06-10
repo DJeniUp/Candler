@@ -16,8 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.badlogic.gdx.video.VideoPlayer;
-import com.badlogic.gdx.video.VideoPlayerCreator;
+//import com.badlogic.gdx.video.VideoPlayer;
+//import com.badlogic.gdx.video.VideoPlayerCreator;
 import games.rednblack.candler.Managers.LabelManager;
 import games.rednblack.candler.components.ExitButtonComponent;
 import games.rednblack.candler.components.PlayButtonComponent;
@@ -65,7 +65,7 @@ public class CandlerGame extends ApplicationAdapter {
     private World world;
     private Skin skin;
     private Window pauseMenu;
-    private VideoPlayer videoPlayer;
+    //private VideoPlayer videoPlayer;
 
     @Override
     public void create() {
@@ -136,7 +136,7 @@ public class CandlerGame extends ApplicationAdapter {
         //ButtonComponent exitButtonComponent = exitButton.getComponent(ButtonComponent.class);
 
     }
-    public void playVideo(){
+    /*public void playVideo(){
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(800,600,mCamera);
         videoPlayer = VideoPlayerCreator.createVideoPlayer();
@@ -146,7 +146,7 @@ public class CandlerGame extends ApplicationAdapter {
             System.out.println("VideoFileNotFind");
         }
         //startGame();
-    }
+    }*/
     public void startGame(){
         /*backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("backgroundMusic.mp3"));
         backgroundMusic.setLooping(true);
