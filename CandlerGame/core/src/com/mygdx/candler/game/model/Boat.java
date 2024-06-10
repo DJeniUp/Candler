@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 
-public class Object {
+public class Boat extends Object {
     Manager manager;
     Vector2 pos;
     Vector2 size;
@@ -19,7 +19,8 @@ public class Object {
     int textureIndex = 0;
     Player player;
     boolean locked;
-    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
+    public Boat(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
+        super();
         this.manager = manager;
         this.pos = position;
         this.stage = stage;
@@ -30,25 +31,14 @@ public class Object {
         for(String i:filenames)
             textures.add(new Texture("Game/Objects/"+i));
     }
-    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player,Vector2 size){
-        this(manager,position,stage,filenames,player);
-        this.size = size;
-    }
 
-    public Object(){}
-    public void changeTexture(){ textureIndex = (textureIndex+1)%textures.size();}
-    public void draw(){}
+    public void changeTexture(){ super.changeTexture();}
     public void draw(float x){
-        if(x-pos.x<1.2) {
+        super.draw();
+        if(x>=2.2f) pos.x = x+0.2f;
+        if(abs(x-pos.x)<1f) {
             stage.getBatch().draw(textures.get(textureIndex), (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
-        }
-        if(locked){
-            player.unlock();
-        }
-        if(!locked&&abs(pos.x-x)<Config.defaultObjectSize.x){
-            locked=true;
-            player.lock(this);
         }
     }
 }
