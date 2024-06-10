@@ -1,6 +1,7 @@
 package com.mygdx.candler.game.view;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.Player;
 import com.mygdx.candler.game.model.Tile;
@@ -17,9 +18,9 @@ public class MapArtist {
         this.stage = stage;
         this.player = player;
         tiles = new ArrayList<>();
-        tiles.add(new Tile(manager, "map.png",0,4.0f,stage));
+        Config.loadTiles(tiles,manager,stage,player);
     }
     public void draw() {
-        tiles.get(0).draw(player.currentPosition.x); // Currently we only have one map. Later, we'll go through array by for-cycle
+        for(Tile tile:tiles) tile.draw(player.currentPosition.x); // Currently we only have one map. Later, we'll go through array by for-cycle
     }
 }

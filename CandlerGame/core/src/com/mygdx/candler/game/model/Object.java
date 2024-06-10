@@ -45,9 +45,9 @@ public class Object {
         if(locked){
             player.unlock();
         }
-        if(!locked&&abs(x-pos.x)<size.x){
+        if(!locked&&abs(pos.x-x)<Config.defaultObjectSize.x){
             locked=true;
-            player.lock();
+            player.lock(this);
         }
     }
 }
