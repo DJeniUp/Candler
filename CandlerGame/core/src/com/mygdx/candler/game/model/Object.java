@@ -19,7 +19,8 @@ public class Object {
     int textureIndex = 0;
     Player player;
     boolean locked;
-    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
+    public int ID;
+    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player, int ID){
         this.manager = manager;
         this.pos = position;
         this.stage = stage;
@@ -27,11 +28,13 @@ public class Object {
         size = Config.defaultObjectSize;
         locked=false;
         textures = new ArrayList<>();
-        for(String i:filenames)
+        for(String i:filenames){
             textures.add(new Texture("Game/Objects/"+i));
+        }
+        this.ID=ID;
     }
-    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player,Vector2 size){
-        this(manager,position,stage,filenames,player);
+    public Object(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player,Vector2 size, int ID){
+        this(manager,position,stage,filenames,player,ID);
         this.size = size;
     }
 

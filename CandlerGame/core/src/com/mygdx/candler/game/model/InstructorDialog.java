@@ -42,9 +42,9 @@ public class InstructorDialog {
         },0,0.1f);
     }
     public void draw(){
-        System.out.println("Distance = "+abs(player.currentPosition.x-Config.instructorPosition.x));
-        float distance=abs(player.currentPosition.x-Config.instructorPosition.x);
-        if(distance>0.3f||distance<0.15f){
+        System.out.println("Distance = "+(player.currentPosition.x-Config.instructorPosition.x));
+        float distance=player.currentPosition.x-Config.instructorPosition.x;
+        if(distance<-0.3f||distance>-0.125f){
             clearTypedQuote();
             return;
         }

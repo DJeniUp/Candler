@@ -7,11 +7,15 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
+import com.mygdx.candler.game.model.sentence.SentenceDrawer;
 import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Random;
+
+import static java.lang.Math.abs;
 
 public class Player extends Object {
     Manager manager;
@@ -67,9 +71,10 @@ public class Player extends Object {
     }
     public void lock(){
         try {
-            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10, true);
+            Random rn=new Random();
+            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 5+abs(rn.nextInt())%10, true);
             Gdx.input.setInputProcessor(typerArtist);
-            typerArtist.load(0,new Vector2(0.3f,0.7f));
+            typerArtist.load(receiver.ID, new Vector2(0.15f,0.7f));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class Config {
     //Typing
-    public static float letterWidth=0.04f;
-    public static float letterScale=3;
+    public static float letterWidth=0.03f;
+    public static float letterScale=2;
     public static Color notTyped=Color.ORANGE;
     public static Color correctlyTyped=Color.WHITE;
     public static Color incorrectlyTyped=Color.RED;
@@ -21,21 +21,21 @@ public class Config {
     public static Vector2 defaultObjectSize=new Vector2(0.3f, 0.3f);
     public static void loadObjects(ArrayList<Object> objects, Manager manager, Stage stage, Player player){
         objects.add(new Object(manager, new Vector2(0.8f,0.14f),stage,new String[]{"Light1_0.png","Light1_1.png"},
-                player, new Vector2(0.2f,0.2f)));
-        objects.add(new Object(manager, new Vector2(1f,0.16f),stage, new String[]{"Lighter2_0.png","Lighter2_1.png"},player));
-        objects.add(new Object(manager, new Vector2(1.2f,0.175f),stage,new String[]{"Lighter2_0.png","Lighter2_1_fire.png"},player));
+                player, new Vector2(0.2f,0.2f),0));
+        objects.add(new Object(manager, new Vector2(1f,0.16f),stage, new String[]{"Lighter2_0.png","Lighter2_1.png"},player,1));
+        objects.add(new Object(manager, new Vector2(1.2f,0.175f),stage,new String[]{"Lighter2_0.png","Lighter2_1_fire.png"},player,2));
         objects.add(new Object(manager, new Vector2(1.5f,0.10f),stage,new String[]{"Light1_0.png","Light1_1_orange.png"},
-                        player,new Vector2(0.23f,0.23f)));
-        objects.add(new Object(manager, new Vector2(1.8f,0.15f),stage,new String[]{"Lighter2_0.png","Lighter2_1_orange.png"},player));
-        objects.add(new Object(manager, new Vector2(2.0f,0.17f),stage,new String[]{"Lighter2_0.png","Lighter2_1_blue.png"},player));
+                        player,new Vector2(0.23f,0.23f),3));
+        objects.add(new Object(manager, new Vector2(1.8f,0.15f),stage,new String[]{"Lighter2_0.png","Lighter2_1_orange.png"},player,4));
+        objects.add(new Object(manager, new Vector2(2.0f,0.17f),stage,new String[]{"Lighter2_0.png","Lighter2_1_blue.png"},player,5));
         objects.add(new Boat(manager, new Vector2(2.4f,0.06f),stage,new String[]{"boat.png"},player));
 
         objects.add(new Object(manager, new Vector2(2.4f,0.12f),stage,new String[]{"Light1_0_ocean.png","Light1_1_ocean.png"},
-                player, new Vector2(0.16f,0.16f)));
-        objects.add(new Object(manager, new Vector2(2.6f,0.15f),stage,new String[]{"Lighter2_0_ocean.png","Lighter2_1_ocean_1.png"},player));
+                player, new Vector2(0.16f,0.16f),6));
+        objects.add(new Object(manager, new Vector2(2.6f,0.15f),stage,new String[]{"Lighter2_0_ocean.png","Lighter2_1_ocean_1.png"},player,7));
         objects.add(new Object(manager, new Vector2(2.8f,0.11f),stage,new String[]{"Light1_0_ocean_2.png","Light1_1_blue.png"},
-                player, new Vector2(0.18f,0.18f)));
-        objects.add(new Portal(manager, new Vector2(3.19f,0.05f),stage,new String[]{"portal.png"}, player));
+                player, new Vector2(0.18f,0.18f),8));
+        objects.add(new Portal(manager, new Vector2(3.19f,0.05f),stage,new String[]{"portal.png"}, player,9));
     }
     //Boat
     public static Vector2 boatSize=new Vector2(0.3f,0.4f);

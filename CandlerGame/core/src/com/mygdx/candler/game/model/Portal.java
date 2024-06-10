@@ -20,7 +20,8 @@ public class Portal extends Object{
     int textureIndex = 0;
     Player player;
     boolean locked;
-    public Portal(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
+    public int ID;
+    public Portal(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player,int ID){
         super();
         this.manager = manager;
         this.pos = position;
@@ -29,6 +30,7 @@ public class Portal extends Object{
         size = Config.defaultObjectSize;
         locked=false;
         textures = new ArrayList<>();
+        this.ID=ID;
         for(String i:filenames)
             textures.add(new Texture("Game/Objects/"+i));
     }

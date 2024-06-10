@@ -32,9 +32,9 @@ public class MainMenuArtist {
     public void update(){
         typerArtist.clearTyped();
         typerArtist.sentenceDrawers.clear();
-        typerArtist.load(0,new Vector2(0.42f,0.9f));
-        typerArtist.load(1 ,new Vector2(0.42f,0.3f));
-        typerArtist.load(2,new Vector2(0.36f,0.6f));
+        typerArtist.load(0,new Vector2(0.44f,0.89f));//play
+        typerArtist.load(1 ,new Vector2(0.44f,0.29f));//exit
+        typerArtist.load(2,new Vector2(0.40f,0.6f));//settings
     }
     public void draw() {
         Gdx.input.setInputProcessor(typerArtist);
