@@ -1,5 +1,6 @@
 [
-  {"time": 0.0, "text":  "Text for scene one"},
-  {"time": 1.0, "text":  "Another line of scene one"},
-  {"time": 2.0}
+  {"time": 0.0, "text":  "Will the fire in your hand burn forever?"},
+  {"time": 4.0, "text":  "Or will he fade away as the"},
+  {"time": 8.0, "text":  "last ray of hope in this dark world"},
+  {"time": 12.0}
 ]

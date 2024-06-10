@@ -16,6 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.video.VideoPlayer;
+import com.badlogic.gdx.video.VideoPlayerCreator;
 import games.rednblack.candler.Managers.LabelManager;
 import games.rednblack.candler.components.ExitButtonComponent;
 import games.rednblack.candler.components.PlayButtonComponent;
@@ -32,9 +34,9 @@ import games.rednblack.editor.renderer.resources.ResourceManagerLoader;
 import games.rednblack.editor.renderer.scene2d.ButtonClickListener;
 import games.rednblack.editor.renderer.utils.ComponentRetriever;
 import games.rednblack.editor.renderer.utils.ItemWrapper;
-//import com.badlogic.gdx.video;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class CandlerGame extends ApplicationAdapter {
@@ -63,6 +65,7 @@ public class CandlerGame extends ApplicationAdapter {
     private World world;
     private Skin skin;
     private Window pauseMenu;
+    private VideoPlayer videoPlayer;
 
     @Override
     public void create() {
@@ -123,6 +126,7 @@ public class CandlerGame extends ApplicationAdapter {
             public void clicked(int i) {
                 System.out.println("Start");
 
+                //playVideo();
                 startGame();
                 //else if(i== exitButton.getEntity())Gdx.app.exit();
             }
@@ -133,7 +137,15 @@ public class CandlerGame extends ApplicationAdapter {
 
     }
     public void playVideo(){
-        //VideoPlayer
+        mCamera = new OrthographicCamera();
+        mViewport = new ExtendViewport(800,600,mCamera);
+        videoPlayer = VideoPlayerCreator.createVideoPlayer();
+        try {
+            videoPlayer.play(Gdx.files.internal("StarAnim.mp4"));
+        }catch (FileNotFoundException e){
+            System.out.println("VideoFileNotFind");
+        }
+        //startGame();
     }
     public void startGame(){
         /*backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("backgroundMusic.mp3"));
@@ -211,6 +223,8 @@ public class CandlerGame extends ApplicationAdapter {
         mSceneLoader.addComponentByTagName("text0", LabelComponent.class);
         mSceneLoader.addComponentByTagName("lighter1", LighterComponent.class);
         mSceneLoader.addComponentByTagName("light1", LighterComponent.class);
+        mSceneLoader.addComponentByTagName("lighter2", LighterComponent.class);
+        mSceneLoader.addComponentByTagName("light2", LighterComponent.class);
         //lightManager = new LightAnimSystem(mSceneLoader);
         //lightManager.activateLight("light1");
         gameFlag=1;
@@ -305,7 +319,6 @@ public class CandlerGame extends ApplicationAdapter {
     public void render() {
 
         super.render();
-
         if(gameFlag==1) {
             batch.setProjectionMatrix(mCamera.combined);
             batch.begin();

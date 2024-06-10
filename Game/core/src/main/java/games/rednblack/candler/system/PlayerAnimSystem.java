@@ -5,6 +5,7 @@ import com.artemis.annotations.All;
 import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.physics.box2d.Body;
+import games.rednblack.candler.Scenes.SceneOne;
 import games.rednblack.candler.components.PlayerComponent;
 import games.rednblack.editor.renderer.components.ParentNodeComponent;
 import games.rednblack.editor.renderer.components.TransformComponent;
@@ -25,19 +26,26 @@ public class PlayerAnimSystem extends IteratingSystem {
     protected void process(int entity) {
         ParentNodeComponent nodeComponent = parentMapper.get(entity);
         Body body = physicsMapper.get(nodeComponent.parentEntity).body;
+        SceneOne sceneOne = SceneOne.getInstance();
 
         if (body == null)
             return;
 
-        //PlayerComponent playerComponent = playerMapper.get(entity);
-        //SpriteAnimationComponent spriteAnimationComponent = spriteMapper.get(entity);
-        //SpriteAnimationStateComponent spriteAnimationStateComponent = spriteStateMapper.get(entity);
+        PlayerComponent playerComponent = playerMapper.get(entity);
+        SpriteAnimationComponent spriteAnimationComponent = spriteMapper.get(entity);
+        SpriteAnimationStateComponent spriteAnimationStateComponent = spriteStateMapper.get(entity);
         TransformComponent transformComponent = transformMapper.get(entity);
+        if(sceneOne.light==1){
+            spriteAnimationComponent.currentAnimation="magic";
+        }else{
+            spriteAnimationComponent.currentAnimation="standart";
+        }
 
         if (Math.abs(body.getLinearVelocity().x) > 0.1f) {
 
             transformComponent.flipX = body.getLinearVelocity().x < 0;
         }
+        spriteAnimationStateComponent.set(spriteAnimationComponent);
 
     }
 }

@@ -53,11 +53,11 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
     @Override
     public void act(float delta) {
         SceneOne sceneOne = SceneOne.getInstance();
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && sceneOne.light==0) {
             movePlayer(LEFT);
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && sceneOne.light==0) {
             movePlayer(RIGHT);
         }
     }

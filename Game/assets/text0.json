@@ -1,5 +1,5 @@
 [
-  {"time": 0.0, "text":  "Text for scene zero"},
-  {"time": 1.0, "text":  "Another line of scene zero"},
-  {"time": 2.0}
+  {"time": 0.0, "text":  "After that you decided that you should"},
+  {"time": 4.0, "text":  "give light to the whole world"},
+  {"time": 8.0}
 ]

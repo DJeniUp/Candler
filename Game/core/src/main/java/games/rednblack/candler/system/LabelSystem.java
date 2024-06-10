@@ -34,6 +34,7 @@ public class LabelSystem extends BaseSystem {
         labelManager.update(world.getDelta());
         String labelText = labelManager.getCurrentSubtitle();
         if(labelText!=null){
+            font.getData().setScale(3.0f);
             //System.out.println("TEXT");
             System.out.println(labelText);
            // batch.begin();
@@ -42,9 +43,11 @@ public class LabelSystem extends BaseSystem {
             float textWidth = font.getRegion().getRegionWidth();
             float textHeight = font.getCapHeight();
             float x = (screenWidth - textWidth)/2;
-            float y = screenHeight/2;
+            float y = screenHeight/9;
             font.draw(batch, labelText, x, y);
            // batch.end();
+        }else{
+            font.getData().setScale(1.0f);
         }
     }
 }
