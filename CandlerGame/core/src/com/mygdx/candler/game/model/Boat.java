@@ -35,7 +35,9 @@ public class Boat extends Object {
     public void changeTexture(){ super.changeTexture();}
     public void draw(float x){
         super.draw();
-        if(x>=2.2f) pos.x = x+0.2f;
+        if(x>=2.2f) {
+            pos.x = x+0.2f;
+        }
         if(abs(x-pos.x)<1f) {
             stage.getBatch().draw(textures.get(textureIndex), (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());

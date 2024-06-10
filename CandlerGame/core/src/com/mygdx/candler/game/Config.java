@@ -51,6 +51,10 @@ public class Config {
     //Instructor
     public static Vector2 instructorSize=new Vector2(0.3f,0.2f);
     public static Vector2 instructorPosition=new Vector2(0.5f,0.22f);
+    public static StringBuilder quote = new StringBuilder(
+            "Hello. This is a Candler Game.\n" +
+            "Your task is to lighten the lanterns.\n" +
+            "If you fail, the world gets darker.");
 
     //Tile
     public final static float tileHeight = 0.3f;

@@ -28,15 +28,6 @@ public class TyperArtist implements TypingProcessor {
         possibleSentences=new ArrayList<>();
         possibleSentences.addAll(SentenceLoader.loadSentencesFromCSV(fileReader));
     }
-    public TyperArtist(Manager manager, Stage stage, ArrayList<String>possibleSentences,int countdown,boolean flag) {
-        this.manager=manager;
-        this.flag = flag;
-        timer=new Timer(manager, stage, countdown, flag);
-        this.stage=stage;
-        font = new BitmapFont();
-        sentenceDrawers=new ArrayList<>();
-        this.possibleSentences=possibleSentences;
-    }
     public void draw() {
         timer.draw();
         for(int i=sentenceDrawers.size()-1;i>=0;i--){

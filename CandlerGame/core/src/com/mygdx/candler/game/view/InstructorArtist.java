@@ -5,23 +5,26 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.Instructor;
+import com.mygdx.candler.game.model.InstructorDialog;
 import com.mygdx.candler.game.model.Object;
 import com.mygdx.candler.game.model.Player;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 public class InstructorArtist {
     Manager manager;
     Stage stage;
     Player player;
-    ArrayList<Instructor> instructors;
+    Instructor instructor;
     public InstructorArtist(Manager manager, Stage stage, Player player){
+        this.manager = manager;
         this.stage = stage;
         this.player= player;
-        instructors = new ArrayList<>();
-        instructors.add(new Instructor(manager, Config.instructorPosition,stage,"instructor.png",player));
+        instructor = new Instructor(manager, Config.instructorPosition,stage,"instructor.png",player);
     }
     public void draw(){
-        instructors.get(0).draw(player.currentPosition.x);
+        instructor.draw(player.currentPosition.x);
     }
 }
