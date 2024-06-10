@@ -1,6 +1,6 @@
 First lantern
-Second one
-Lantern on the ground:)
+Durable enlightenment
+for(auto& i:a) {}
 Long sentence, I must hurry
 Water is coming?
 I found a boat
