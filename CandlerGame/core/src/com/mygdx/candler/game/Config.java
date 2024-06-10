@@ -41,7 +41,7 @@ public class Config {
     public static Vector2 boatSize=new Vector2(0.3f,0.4f);
     //Player
     public static float animationSpeed=0.05f;
-    public static float moveSpeed=0.005f;
+    public static float moveSpeed=0.025f;
     public static Vector2 startingPosition=new Vector2(0.0f,0.3f);
     public static Vector2 playerSize=new Vector2(0.2f,0.2f);
     public static float leftMapBound = 0.1f;

@@ -45,12 +45,12 @@ public class Portal extends Object{
             stage.getBatch().draw(textures.get(textureIndex), (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
         }
-        if(locked){
-            player.unlock();
-        }
-        if(!locked&&abs(pos.x-x)<Config.defaultObjectSize.x){
-            locked=true;
-            player.lock();
-        }
+//        if(locked){
+//            player.unlock();
+//        }
+//        if(!locked&&abs(pos.x-x)<Config.defaultObjectSize.x){
+//            locked=true;
+//            player.lock();
+//        }
     }
 }
