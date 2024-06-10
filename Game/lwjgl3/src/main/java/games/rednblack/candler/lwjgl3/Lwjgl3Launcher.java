@@ -3,6 +3,7 @@ package games.rednblack.candler.lwjgl3;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import games.rednblack.candler.CandlerGame;
+import games.rednblack.candler.MainMenu;
 import games.rednblack.candler.MainMenuScreen;
 //import games.rednblack.candler.MainMenuScreen;
 
@@ -14,9 +15,11 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3Application createApplication() {
-        CandlerGame game = new CandlerGame();
-        return new Lwjgl3Application(new MainMenuScreen(game), getDefaultConfiguration());
+        //CandlerGame game = new CandlerGame();
+        //return new Lwjgl3Application(new MainMenuScreen(game), getDefaultConfiguration());
+        return new Lwjgl3Application(new CandlerGame(), getDefaultConfiguration());
     }
+
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();

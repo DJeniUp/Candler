@@ -1,1 +1,1 @@
-{"tiles":[{"regionName":"grass"},{"regionName":"back"},{"regionName":"grassroad"},{"regionName":"road"}],"parameterVO":{"gridWidth":6.4,"gridHeight":6.4}}
+{"tiles":[{"regionName":"grass"},{"regionName":"back"},{"regionName":"grassroad"},{"regionName":"road"},{"regionName":"tree2"},{"regionName":"tree3"},{"regionName":"Lighter2"},{"regionName":"light3"},{"regionName":"grass2"},{"regionName":"grass1"}],"parameterVO":{"gridWidth":3.2,"gridHeight":3.2}}

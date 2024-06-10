@@ -1,0 +1,26 @@
+bird1.png
+	size: 1024, 256
+bird1
+	index: 0
+	bounds: 1, 1, 128, 128
+bird1
+	index: 1
+	bounds: 131, 1, 128, 128
+bird1
+	index: 7
+	bounds: 131, 1, 128, 128
+bird1
+	index: 2
+	bounds: 261, 1, 128, 128
+bird1
+	index: 6
+	bounds: 261, 1, 128, 128
+bird1
+	index: 3
+	bounds: 391, 1, 128, 128
+bird1
+	index: 5
+	bounds: 391, 1, 128, 128
+bird1
+	index: 4
+	bounds: 521, 1, 128, 128

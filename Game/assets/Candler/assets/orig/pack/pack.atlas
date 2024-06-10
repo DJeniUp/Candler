@@ -1,118 +1,180 @@
 pack.png
-	size: 1024, 512
-	filter: Linear, Linear
+	size: 2048, 512
 Bush
 	index: 0
-	bounds: 191, 75, 64, 64
+	bounds: 1685, 299, 64, 64
 Bush
 	index: 1
-	bounds: 286, 128, 64, 64
+	bounds: 1751, 299, 64, 64
 Bush
 	index: 3
-	bounds: 381, 181, 64, 64
+	bounds: 1817, 299, 64, 64
 Bush
 	index: 2
-	bounds: 447, 181, 64, 64
+	bounds: 1883, 299, 64, 64
 Bush
 	index: 6
-	bounds: 612, 280, 64, 64
+	bounds: 1949, 323, 64, 64
 Bush
 	index: 5
-	bounds: 517, 227, 64, 64
+	bounds: 1223, 233, 64, 64
 Bush
 	index: 4
-	bounds: 513, 161, 64, 64
+	bounds: 1355, 233, 64, 64
+Fence
+	bounds: 1, 107, 128, 128
+Fence2
+	bounds: 907, 365, 128, 128
+House
+	bounds: 777, 365, 128, 128
 Light1
 	index: 0
-	bounds: 934, 439, 64, 64
+	bounds: 1553, 299, 64, 64
 Light1
 	index: 1
-	bounds: 96, 22, 64, 64
+	bounds: 1619, 299, 64, 64
+Lighter2
+	bounds: 517, 235, 128, 128
 Untitled 04-19-2024 09-29-06
 	index: 1
-	bounds: 1, 247, 256, 256
+	bounds: 1, 237, 256, 256
 Untitled 04-19-2024 09-29-06 (2)
 	index: 1
-	bounds: 1, 247, 256, 256
+	bounds: 1, 237, 256, 256
 Untitled 04-19-2024 09-29-06
 	index: 0
-	bounds: 259, 247, 256, 256
+	bounds: 259, 237, 256, 256
 Untitled 04-19-2024 09-29-06 (2)
 	index: 0
-	bounds: 259, 247, 256, 256
+	bounds: 259, 237, 256, 256
 animated_grass
 	index: 1
-	bounds: 802, 439, 64, 64
+	bounds: 1421, 299, 64, 64
 animated_grass
 	index: 0
-	bounds: 868, 439, 64, 64
+	bounds: 1487, 299, 64, 64
 back
-	bounds: 707, 333, 64, 64
+	bounds: 1157, 233, 64, 64
+backgroundTree
+	bounds: 1157, 299, 64, 64
+backtree2
+	bounds: 1355, 299, 64, 64
+bird1
+	index: 4
+	bounds: 1167, 365, 128, 128
+bird1
+	index: 5
+	bounds: 1297, 365, 128, 128
+bird1
+	index: 3
+	bounds: 1297, 365, 128, 128
+bird1
+	index: 7
+	bounds: 1427, 365, 128, 128
+bird1
+	index: 1
+	bounds: 1427, 365, 128, 128
+bird1
+	index: 6
+	bounds: 1557, 365, 128, 128
+bird1
+	index: 2
+	bounds: 1557, 365, 128, 128
+bird1
+	index: 0
+	bounds: 647, 235, 128, 128
+fire
+	index: 3
+	bounds: 517, 365, 128, 128
+fire
+	index: 2
+	bounds: 131, 107, 128, 128
+fire
+	index: 0
+	bounds: 647, 365, 128, 128
+fire
+	index: 1
+	bounds: 261, 107, 128, 128
 grass
-	bounds: 836, 405, 32, 32
+	bounds: 1421, 265, 32, 32
+grass1
+	bounds: 1223, 299, 64, 64
+grass2
+	bounds: 1289, 299, 64, 64
 grassroad
-	bounds: 1, 1, 32, 32
+	bounds: 2015, 321, 32, 32
+light3
+	bounds: 1037, 365, 128, 128
+playButton
+	bounds: 1289, 233, 64, 64
 rabbit
 	index: 16
-	bounds: 1, 194, 93, 51
+	bounds: 1, 54, 93, 51
 rabbit
 	index: 17
-	bounds: 517, 452, 93, 51
+	bounds: 1947, 442, 93, 51
 rabbit
 	index: 15
-	bounds: 1, 141, 93, 51
+	bounds: 391, 184, 93, 51
 rabbit
 	index: 14
-	bounds: 96, 194, 93, 51
+	bounds: 777, 312, 93, 51
 rabbit
 	index: 10
-	bounds: 517, 399, 93, 51
+	bounds: 1, 1, 93, 51
 rabbit
 	index: 11
-	bounds: 612, 452, 93, 51
+	bounds: 96, 54, 93, 51
 rabbit
 	index: 13
-	bounds: 1, 88, 93, 51
+	bounds: 1947, 389, 93, 51
 rabbit
 	index: 12
-	bounds: 96, 141, 93, 51
+	bounds: 391, 131, 93, 51
 rabbit
 	index: 6
-	bounds: 191, 194, 93, 51
+	bounds: 777, 259, 93, 51
 rabbit
 	index: 7
-	bounds: 517, 346, 93, 51
+	bounds: 872, 312, 93, 51
 rabbit
 	index: 5
-	bounds: 612, 399, 93, 51
+	bounds: 96, 1, 93, 51
 rabbit
 	index: 4
-	bounds: 707, 452, 93, 51
+	bounds: 191, 54, 93, 51
 rabbit
 	index: 0
-	bounds: 1, 35, 93, 51
+	bounds: 872, 259, 93, 51
 rabbit
 	index: 1
-	bounds: 96, 88, 93, 51
+	bounds: 967, 312, 93, 51
 rabbit
 	index: 3
-	bounds: 191, 141, 93, 51
+	bounds: 191, 1, 93, 51
 rabbit
 	index: 2
-	bounds: 286, 194, 93, 51
+	bounds: 286, 54, 93, 51
 rabbit
 	index: 9
-	bounds: 517, 293, 93, 51
+	bounds: 967, 259, 93, 51
 rabbit
 	index: 8
-	bounds: 612, 346, 93, 51
+	bounds: 1062, 312, 93, 51
+rabbit
+	index: 19
+	bounds: 286, 1, 93, 51
 rabbit
 	index: 18
-	bounds: 707, 399, 93, 51
+	bounds: 1062, 259, 93, 51
 road
-	bounds: 802, 405, 32, 32
+	bounds: 2015, 355, 32, 32
 grass_and_road
 	index: 2
-	bounds: 802, 405, 32, 32
+	bounds: 2015, 355, 32, 32
+tree2
+	bounds: 1687, 365, 128, 128
+tree3
+	bounds: 1817, 365, 128, 128
 white-pixel
-	bounds: 1000, 502, 1, 1
+	bounds: 486, 234, 1, 1

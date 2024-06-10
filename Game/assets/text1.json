@@ -1,0 +1,5 @@
+[
+  {"time": 0.0, "text":  "Text for scene one"},
+  {"time": 1.0, "text":  "Another line of scene one"},
+  {"time": 2.0}
+]

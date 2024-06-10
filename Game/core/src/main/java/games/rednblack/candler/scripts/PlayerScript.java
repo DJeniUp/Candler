@@ -1,15 +1,15 @@
 package games.rednblack.candler.scripts;
 
 import com.artemis.ComponentMapper;
-import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.Fixture;
 
+import games.rednblack.candler.Scenes.SceneOne;
+import games.rednblack.candler.components.LighterComponent;
 import games.rednblack.candler.components.PlayerComponent;
 import games.rednblack.editor.renderer.components.DimensionsComponent;
 import games.rednblack.editor.renderer.components.MainItemComponent;
@@ -28,6 +28,7 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
     protected ComponentMapper<PlayerComponent> playerMapper;
     protected ComponentMapper<MainItemComponent> mainItemMapper;
     protected ComponentMapper<DimensionsComponent> dimensionsMapper;
+    protected ComponentMapper<LighterComponent> lighter1Mapper;
 
     public static final int LEFT = 1;
     public static final int RIGHT = -1;
@@ -51,6 +52,7 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
 
     @Override
     public void act(float delta) {
+        SceneOne sceneOne = SceneOne.getInstance();
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             movePlayer(LEFT);
         }
@@ -67,10 +69,10 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
 
         switch (direction) {
             case LEFT:
-                impulse.set(-250, speed.y);
+                impulse.set(-100, speed.y);
                 break;
             case RIGHT:
-                impulse.set(250, speed.y);
+                impulse.set(100, speed.y);
                 break;
         }
 
@@ -86,12 +88,19 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
 
     @Override
     public void beginContact(int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
-        MainItemComponent mainItemComponent = mainItemMapper.get(contactEntity);
-        PlayerComponent playerComponent = playerMapper.get(animEntity);
-        SpriteAnimationComponent spriteAnimationComponent = spriteMapper.get(contactEntity);
-        if(mainItemComponent.itemIdentifier.contains("lighter1")){
-            //spriteAnimationComponent.currentAnimation="light";
-            mEngine.delete(contactEntity);
+        //MainItemComponent mainItemComponent = mainItemMapper.get(contactEntity);
+        //PlayerComponent playerComponent = playerMapper.get(animEntity);
+        //System.out.println(playerComponent.x);
+        //SpriteAnimationComponent spriteAnimationComponent = spriteMapper.get(contactEntity);
+        LighterComponent lighterComponent = lighter1Mapper.get(contactEntity);
+        SceneOne sceneOne = SceneOne.getInstance();
+        if(lighterComponent !=null &&  lighterComponent.sceneNumber== sceneOne.scene){
+
+            sceneOne.light=1;
+            //ItemWrapper
+            //Entity lightEnt= CandlerGame.root.getChild("light1").getEntity();
+            //mEngine.delete(contactEntity);
+            //System.out.println("YES\n");
         }
     }
 
