@@ -76,7 +76,7 @@ public class Config {
                         "Your task is to lighten the lanterns.\n" +
                         "If you fail, the world gets darker.");
         public static float displayDist=1.2f;
-        public static Color color=Color.CHARTREUSE;
+        public static Color color=Color.PURPLE;
         public static float fontScale=1.7f;
         public static float minDist=0.3f;
         public static float lower=-0.3f;
@@ -105,5 +105,4 @@ public class Config {
         public static float step=0.2f;
         public static float displayDist=1.2f;
     }
-
 }
