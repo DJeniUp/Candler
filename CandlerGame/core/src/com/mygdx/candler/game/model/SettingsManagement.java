@@ -99,13 +99,13 @@ public class SettingsManagement {
     public void updateColor(){
         switch (position){
             case 0:
-                Config.notTyped=getColor(possibleColorIndexes.get(position));
+                Config.Typing.notTyped=getColor(possibleColorIndexes.get(position));
                 break;
             case 1:
-                Config.correctlyTyped=getColor(possibleColorIndexes.get(position));
+                Config.Typing.correctlyTyped=getColor(possibleColorIndexes.get(position));
                 break;
             case 2:
-                Config.incorrectlyTyped=getColor(possibleColorIndexes.get(position));
+                Config.Typing.incorrectlyTyped=getColor(possibleColorIndexes.get(position));
                 break;
             default:
                 throw new IllegalArgumentException("Invalid position: " + position);

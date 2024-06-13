@@ -19,7 +19,7 @@ public class ObjectsArtist {
         this.stage = stage;
         this.player= player;
         objects = new ArrayList<>();
-        Config.loadObjects(objects, manager, stage, player);
+        Config.Objects.loadObjects(objects, manager, stage, player);
         System.out.println("loaded");
     }
     public void draw(){

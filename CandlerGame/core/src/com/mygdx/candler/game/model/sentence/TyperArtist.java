@@ -3,9 +3,9 @@ package com.mygdx.candler.game.model.sentence;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.TypingProcessor;
-
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class TyperArtist implements TypingProcessor {
         font = new BitmapFont();
         sentenceDrawers=new ArrayList<>();
         possibleSentences=new ArrayList<>();
-        possibleSentences.addAll(SentenceLoader.loadSentencesFromCSV(fileReader));
+        possibleSentences.addAll(Config.Typing.loadSentence(fileReader));
     }
     public void draw() {
         timer.draw();

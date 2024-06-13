@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
-import com.mygdx.candler.game.controller.Locations;
 import com.mygdx.candler.game.controller.Manager;
 
 public class Timer{
@@ -15,12 +14,12 @@ public class Timer{
     private final int countdown;
     private int curCountdown;
     private float timeSeconds;
-    private boolean flag; //true iff need to draw
+    private final boolean flag;
     public Timer(Manager manager, Stage stage, int countdown, boolean flag) {
         this.manager=manager;
         this.stage = stage;
         font=new BitmapFont();
-        font.getData().setScale(Config.letterScale);
+        font.getData().setScale(Config.Typing.letterScale);
         font.setColor(Color.WHITE);
         this.countdown=countdown;
         timeSeconds=0;
@@ -46,7 +45,8 @@ public class Timer{
             return;
         }
         if(flag){
-            font.draw(stage.getBatch(),transform(curCountdown),0.45f*stage.getWidth(),0.90f* stage.getHeight());
+            font.draw(stage.getBatch(),transform(curCountdown),Config.Timer.posX*stage.getWidth(),
+                                                            Config.Timer.posY* stage.getHeight());
         }
     }
 }

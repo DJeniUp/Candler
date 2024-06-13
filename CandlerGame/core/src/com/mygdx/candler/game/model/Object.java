@@ -25,7 +25,7 @@ public class Object {
         this.pos = position;
         this.stage = stage;
         this.player=player;
-        size = Config.defaultObjectSize;
+        size = Config.Objects.defaultObjectSize;
         locked=false;
         textures = new ArrayList<>();
         for(String i:filenames){
@@ -49,7 +49,7 @@ public class Object {
         if(locked){
             player.unlock();
         }
-        if(!locked&&abs(pos.x-x)<Config.defaultObjectSize.x){
+        if(!locked&&abs(pos.x-x)<Config.Objects.defaultObjectSize.x){
             locked=true;
             player.lock(this);
         }

@@ -18,6 +18,6 @@ public class Tile {
         this.stage=stage;
     }
     public void draw(float playerX){
-        stage.getBatch().draw(texture,(x-playerX)*stage.getWidth(),0,width*stage.getWidth(), Config.tileHeight *stage.getHeight());
+        stage.getBatch().draw(texture,(x-playerX)*stage.getWidth(),0,width*stage.getWidth(), Config.Tiles.tileHeight *stage.getHeight());
     }
 }

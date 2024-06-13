@@ -16,7 +16,7 @@ public class Boat extends Object {
     Vector2 size;
     Stage stage;
     ArrayList<Texture> textures;
-    int textureIndex = 0;
+    int textureIndex;
     Player player;
     boolean locked;
     public Boat(Manager manager, Vector2 position, Stage stage, String[] filenames,Player player){
@@ -25,20 +25,24 @@ public class Boat extends Object {
         this.pos = position;
         this.stage = stage;
         this.player=player;
-        size = Config.defaultObjectSize;
+        size = Config.Objects.defaultObjectSize;
         locked=false;
         textures = new ArrayList<>();
-        for(String i:filenames)
+        for(String i:filenames){
             textures.add(new Texture("Game/Objects/"+i));
+        }
+        textureIndex=0;
     }
 
-    public void changeTexture(){ super.changeTexture();}
+    public void changeTexture(){
+        super.changeTexture();
+    }
     public void draw(float x){
         super.draw();
-        if(x>=2.2f) {
-            pos.x = x+0.2f;
+        if(x>=Config.Boats.minDist) {
+            pos.x = x+Config.Boats.step;
         }
-        if(abs(x-pos.x)<1f) {
+        if(abs(x-pos.x)<Config.Boats.displayDist) {
             stage.getBatch().draw(textures.get(textureIndex), (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
         }

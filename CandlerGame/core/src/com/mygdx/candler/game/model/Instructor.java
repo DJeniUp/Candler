@@ -3,7 +3,6 @@ package com.mygdx.candler.game.model;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 
@@ -22,12 +21,12 @@ public class Instructor {
         this.pos = pos;
         this.stage = stage;
         this.player = player;
-        size= Config.instructorSize;
+        size= Config.Instructor.instructorSize;
         texture = new Texture("Game/"+filename);
         instructorDialog=new InstructorDialog(manager,stage,player);
     }
     public void draw(float x){
-        if(abs(x-pos.x)<1.2f) {
+        if(abs(x-pos.x)<Config.Instructor.displayDist) {
             stage.getBatch().draw(texture, (pos.x - x) * stage.getWidth(), pos.y * stage.getHeight(),
                     size.x * stage.getWidth(), size.y * stage.getHeight());
         }

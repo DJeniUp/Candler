@@ -23,7 +23,7 @@ public class GameArtist {
         this.stage=stage;
         this.manager=manager;
         player = new Player(manager, stage);
-        backgroundTexture = new Texture("Game/back.png");
+        backgroundTexture = new Texture("Game/background.jpg");
         transparentBG = new Texture("shaders/transparentBG.png");
         mapArtist = new MapArtist(manager, stage,player);
         objectsArtist = new ObjectsArtist(manager, stage,player);

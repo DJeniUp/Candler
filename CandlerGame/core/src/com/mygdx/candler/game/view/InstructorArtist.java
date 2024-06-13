@@ -22,7 +22,7 @@ public class InstructorArtist {
         this.manager = manager;
         this.stage = stage;
         this.player= player;
-        instructor = new Instructor(manager, Config.instructorPosition,stage,"instructor.png",player);
+        instructor = new Instructor(manager, Config.Instructor.instructorPosition,stage,"instructor.png",player);
     }
     public void draw(){
         instructor.draw(player.currentPosition.x);

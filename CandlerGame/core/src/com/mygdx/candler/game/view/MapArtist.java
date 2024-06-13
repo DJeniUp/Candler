@@ -18,7 +18,7 @@ public class MapArtist {
         this.stage = stage;
         this.player = player;
         tiles = new ArrayList<>();
-        Config.loadTiles(tiles,manager,stage,player);
+        Config.Tiles.loadTiles(tiles,manager,stage,player);
     }
     public void draw() {
         for(Tile tile:tiles) tile.draw(player.currentPosition.x); // Currently we only have one map. Later, we'll go through array by for-cycle

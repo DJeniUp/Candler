@@ -7,7 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
-import com.mygdx.candler.game.model.sentence.SentenceDrawer;
 import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
@@ -29,7 +28,7 @@ public class Player extends Object {
     Object receiver;
     public Player(Manager manager, Stage stage){
         this.manager=manager;
-        currentPosition = Config.startingPosition;
+        currentPosition = Config.Players.startingPosition;
         this.stage = stage;
         textures = new ArrayList<>();
         textures.add(new Texture("Game/candler_1.png"));
@@ -39,16 +38,16 @@ public class Player extends Object {
     }
     public void draw(float x){
         Gdx.input.setInputProcessor(typerArtist);
-        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)&&currentPosition.x>=Config.leftMapBound){
-            currentPosition.x -= Config.moveSpeed;
+        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.LEFT)&&currentPosition.x>=Config.Players.leftMapBound){
+            currentPosition.x -= Config.Players.moveSpeed;
             headingRight = false;
         }
-        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.RIGHT)&&currentPosition.x<=Config.rightMapBound){
-            currentPosition.x += Config.moveSpeed;
+        if(!trapped&&Gdx.input.isKeyPressed(Input.Keys.RIGHT)&&currentPosition.x<=Config.Players.rightMapBound){
+            currentPosition.x += Config.Players.moveSpeed;
             headingRight = true;
         }
-        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*(0.3f+(headingRight?0:Config.playerAnimationDelta)),stage.getHeight()*0.2f,(headingRight?1:-1)* Config.playerSize.x*stage.getWidth(),Config.playerSize.y*stage.getHeight());
-        textureIndex=(textureIndex+ Config.animationSpeed)%textures.size();
+        stage.getBatch().draw(textures.get((int)textureIndex),stage.getWidth()*(0.3f+(headingRight?0:Config.Players.playerAnimationDelta)),stage.getHeight()*0.2f,(headingRight?1:-1)* Config.Players.playerSize.x*stage.getWidth(),Config.Players.playerSize.y*stage.getHeight());
+        textureIndex=(textureIndex+ Config.Players.animationSpeed)%textures.size();
         if(trapped){
             typerArtist.draw();
         }
@@ -74,7 +73,7 @@ public class Player extends Object {
             Random rn=new Random();
             typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10+abs(rn.nextInt())%10, true);
             Gdx.input.setInputProcessor(typerArtist);
-            typerArtist.load(receiver.ID, new Vector2(0.15f,0.7f));
+            typerArtist.load(receiver.ID, Config.Typing.position);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
