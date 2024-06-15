@@ -41,7 +41,7 @@ public class TyperArtist implements TypingProcessor {
     @Override
     public boolean keyTyped(char c) {
         if(c=='\b'){
-            if(typedSentence.isEmpty()){
+            if(typedSentence.length()==0){
                 return false;
             }
             typedSentence.deleteCharAt(typedSentence.length()-1);
