@@ -71,7 +71,7 @@ public class Player extends Object {
     public void lock(){
         try {
             Random rn=new Random();
-            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10+abs(rn.nextInt())%10, true);
+            typerArtist = new TyperArtist(manager, stage,new FileReader(Gdx.files.internal("assets/Game/test.txt").path()), 10+abs(rn.nextInt())%10, true);
             Gdx.input.setInputProcessor(typerArtist);
             typerArtist.load(receiver.ID, Config.Typing.position);
         } catch (FileNotFoundException e) {

@@ -1,10 +1,10 @@
 First lantern
 Durable enlightenment
-for(auto& i:a) {}
+Some test text
 Long sentence, I must hurry
 Water is coming?
 I found a boat
 Let's seat into the boat
-Weather is cool
+Photochemical dysfunction
 Lantern on the water:)
 Exit?
