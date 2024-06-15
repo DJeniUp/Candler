@@ -11,6 +11,7 @@ import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -71,10 +72,11 @@ public class Player extends Object {
     public void lock(){
         try {
             Random rn=new Random();
-            typerArtist = new TyperArtist(manager, stage,new FileReader("assets/Game/test.txt"), 10+abs(rn.nextInt())%10, true);
+            FileReader temp=Config.Typing.getFileReader("Game/test.txt");
+            typerArtist = new TyperArtist(manager, stage, temp, 10+abs(rn.nextInt())%10, true);
             Gdx.input.setInputProcessor(typerArtist);
             typerArtist.load(receiver.ID, Config.Typing.position);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         trapped=true;

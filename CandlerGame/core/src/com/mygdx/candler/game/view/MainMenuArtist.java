@@ -1,14 +1,15 @@
 package com.mygdx.candler.game.view;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Locations;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.sentence.TyperArtist;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 
 public class MainMenuArtist {
     Manager manager;
@@ -20,9 +21,9 @@ public class MainMenuArtist {
         this.stage=stage;
         this.manager=manager;
         try {
-            FileReader temp= new FileReader("assets/MainMenu/sentences.txt");
+            FileReader temp = Config.Typing.getFileReader("MainMenu/sentences.txt");
             typerArtist=new TyperArtist(manager, stage,temp, 60, false);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         backgroundTexture=new Texture("MainMenu/background.png");

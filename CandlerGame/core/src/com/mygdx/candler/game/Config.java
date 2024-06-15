@@ -1,14 +1,15 @@
 package com.mygdx.candler.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.*;
 import com.mygdx.candler.game.model.Object;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -32,6 +33,20 @@ public class Config {
                 throw new RuntimeException(e);
             }
             return sentences;
+        }
+        public static FileReader getFileReader(String internalPath) throws IOException {
+            File tempFile = File.createTempFile("temp", ".tmp");
+            tempFile.deleteOnExit();
+            FileHandle fileHandle = Gdx.files.internal(internalPath);
+            try (InputStream inputStream = fileHandle.read();
+                 FileOutputStream out = new FileOutputStream(tempFile)) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    out.write(buffer, 0, bytesRead);
+                }
+            }
+            return new FileReader(tempFile);
         }
     }
 
