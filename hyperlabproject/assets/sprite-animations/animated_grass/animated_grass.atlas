@@ -1,9 +1,0 @@
-animated_grass.png
-	size: 256, 128
-	filter: Linear, Linear
-animated_grass
-	index: 0
-	bounds: 1, 1, 64, 64
-animated_grass
-	index: 1
-	bounds: 67, 1, 64, 64

@@ -19,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 //import com.badlogic.gdx.video.VideoPlayer;
 //import com.badlogic.gdx.video.VideoPlayerCreator;
 import games.rednblack.candler.Managers.LabelManager;
+import games.rednblack.candler.Scenes.SceneOne;
 import games.rednblack.candler.components.*;
 import games.rednblack.candler.system.*;
 import games.rednblack.candler.scripts.PlayerScript;
@@ -85,11 +86,33 @@ public class CandlerGame extends ApplicationAdapter {
         root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
         ItemWrapper playButton = root.getChild("PlayButton");
         ItemWrapper exitGameButton = root.getChild("ExitButton");
+        ItemWrapper continueButton = root.getChild("ContinueButton");
 
         ComponentRetriever.create(exitGameButton.getEntity(), ButtonComponent.class, mEngine);
         ComponentRetriever.create(playButton.getEntity(), ButtonComponent.class, mEngine);
+        ComponentRetriever.create(continueButton.getEntity(), ButtonComponent.class, mEngine);
         ButtonComponent exitButtonComponent = exitGameButton.getComponent(ButtonComponent.class);
         ButtonComponent playButtonComponent = playButton.getComponent(ButtonComponent.class);
+        ButtonComponent continueButtonComponent = continueButton.getComponent(ButtonComponent.class);
+
+        continueButtonComponent.addListener(new ButtonComponent.ButtonListener() {
+            @Override
+            public void touchUp(int entity) {
+
+            }
+
+            @Override
+            public void touchDown(int entity) {
+
+            }
+
+            @Override
+            public void clicked(int entity) {
+                SceneOne sceneOne = SceneOne.getInstance();
+                sceneOne.load();
+                startGame();
+            }
+        });
 
         exitButtonComponent.addListener(new ButtonComponent.ButtonListener() {
             @Override
@@ -193,14 +216,14 @@ public class CandlerGame extends ApplicationAdapter {
         //mSentenceMechanic.create(batch);
 
         ItemWrapper player = root.getChild("player");
-        ItemWrapper pauseMenu = root.getChild("PauseMenu");
+        //ItemWrapper pauseMenu = root.getChild("PauseMenu");
         ComponentRetriever.create(player.getChild("player-anim").getEntity(), PlayerComponent.class, mEngine);
-        ComponentRetriever.create(pauseMenu.getEntity(), PauseMenuComponent.class, mEngine);
+        //ComponentRetriever.create(pauseMenu.getEntity(), PauseMenuComponent.class, mEngine);
         //ItemWrapper lighter1=root.getChild("lighter1");
         //ComponentRetriever.create(lighter1.getChild("lighter1-anim").getEntity(), Lighter1Component.class, mEngine);
         PlayerScript playerScript = new PlayerScript();
         player.addScript(playerScript);
-        pauseMenuSystem.setFocus(player.getEntity());
+        //pauseMenuSystem.setFocus(player.getEntity());
         cameraSystem.setFocus(player.getEntity());
         //labelSystem.setFocus(mCamera.);
         //cameraSystem.setFocus(root.getChild("Text1").getEntity());
@@ -224,7 +247,88 @@ public class CandlerGame extends ApplicationAdapter {
     }
 
 
+    public void pauseMenu(){
+        gameFlag=0;
+        mAssetManager = new AssetManager();
+        mAssetManager.setLoader(AsyncResourceManager.class, new ResourceManagerLoader(mAssetManager.getFileHandleResolver()));
+        mAssetManager.load("project.dt", AsyncResourceManager.class);
 
+        mAssetManager.finishLoading();
+
+        mAsyncResourceManager = mAssetManager.get("project.dt", AsyncResourceManager.class);
+        SceneConfiguration config = new SceneConfiguration();
+        config.setResourceRetriever(mAsyncResourceManager);
+        mSceneLoader = new SceneLoader(config);
+        mEngine = mSceneLoader.getEngine();
+        mCamera = new OrthographicCamera();
+        mViewport = new ExtendViewport(60, 32, mCamera);
+        mSceneLoader.loadScene("PauseMenu", mViewport);
+
+
+        root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
+        ItemWrapper continueButton = root.getChild("ContinueButton");
+        ItemWrapper exitGameButton = root.getChild("ExitButton");
+        ItemWrapper saveButton = root.getChild("SaveButton");
+
+        ComponentRetriever.create(exitGameButton.getEntity(), ButtonComponent.class, mEngine);
+        ComponentRetriever.create(continueButton.getEntity(), ButtonComponent.class, mEngine);
+        ComponentRetriever.create(saveButton.getEntity(), ButtonComponent.class, mEngine);
+        ButtonComponent exitButtonComponent = exitGameButton.getComponent(ButtonComponent.class);
+        ButtonComponent continueButtonComponent = continueButton.getComponent(ButtonComponent.class);
+        ButtonComponent saveButtonComponent = saveButton.getComponent(ButtonComponent.class);
+
+        saveButtonComponent.addListener(new ButtonComponent.ButtonListener() {
+            @Override
+            public void touchUp(int entity) {
+
+            }
+
+            @Override
+            public void touchDown(int entity) {
+
+            }
+
+            @Override
+            public void clicked(int entity) {
+                SceneOne sceneOne = SceneOne.getInstance();
+                sceneOne.save();
+            }
+        });
+
+        exitButtonComponent.addListener(new ButtonComponent.ButtonListener() {
+            @Override
+            public void touchUp(int i) {
+
+            }
+
+            @Override
+            public void touchDown(int i) {
+
+            }
+
+            @Override
+            public void clicked(int i) {
+                Gdx.app.exit();
+            }
+        });
+        continueButtonComponent.addListener(new ButtonComponent.ButtonListener(){
+            @Override
+            public void touchUp(int i) {
+                System.out.println("Up");
+            }
+
+            @Override
+            public void touchDown(int i) {
+                System.out.println("Down");
+            }
+
+            @Override
+            public void clicked(int i) {
+                System.out.println("Start");
+                startGame();
+            }
+        });
+    }
 
 
     @Override
@@ -232,6 +336,10 @@ public class CandlerGame extends ApplicationAdapter {
 
         super.render();
         if(gameFlag==1) {
+            if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
+                SceneOne.getInstance().pause=1;
+                pauseMenu();
+            }
             batch.setProjectionMatrix(mCamera.combined);
             batch.begin();
 
@@ -266,8 +374,7 @@ public class CandlerGame extends ApplicationAdapter {
 
     @Override
     public void dispose() {
-        batch.dispose();
-        mSentenceMechanic.dispose();
+        if(batch!=null)batch.dispose();
         mAssetManager.dispose();
         mSceneLoader.dispose();
     }

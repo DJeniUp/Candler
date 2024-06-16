@@ -29,7 +29,7 @@ public class CameraSystem extends IteratingSystem {
     protected void process(int entity) {
         ViewPortComponent viewPortComponent = viewportMapper.get(entity);
         OrthographicCamera camera = (OrthographicCamera) viewPortComponent.viewPort.getCamera();
-        System.out.println(camera.zoom);
+        //System.out.println(camera.zoom);
         SceneOne sceneOne = SceneOne.getInstance();
         if(sceneOne.light==1 && zoomflag == 0){
 

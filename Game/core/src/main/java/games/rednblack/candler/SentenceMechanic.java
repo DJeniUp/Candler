@@ -71,10 +71,7 @@ public class SentenceMechanic implements InputProcessor {
         }
     }
 
-    public void dispose(){
-        batch.dispose();
-        font.dispose();
-    }
+
 
     @Override
     public boolean keyDown(int i) {

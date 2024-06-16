@@ -46,6 +46,12 @@ public class PlayerAnimSystem extends IteratingSystem {
             transformComponent.flipX = body.getLinearVelocity().x < 0;
         }
         spriteAnimationStateComponent.set(spriteAnimationComponent);
+        TransformComponent playerTr = transformMapper.get(nodeComponent.parentEntity);
+        if(sceneOne.pause==0) {
+            sceneOne.x = playerTr.x;
+            sceneOne.y = playerTr.y;
+        }
+        //System.out.println(sceneOne.x+ " "+ sceneOne.y + " " + transformComponent.x + " " + transformComponent.y);
 
     }
 }

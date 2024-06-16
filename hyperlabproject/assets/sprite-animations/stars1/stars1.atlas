@@ -1,8 +1,0 @@
-stars1.png
-	size: 1024, 512
-stars1
-	index: 0
-	bounds: 1, 1, 256, 256
-stars1
-	index: 1
-	bounds: 259, 1, 256, 256

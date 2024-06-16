@@ -48,6 +48,11 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
         animEntity = itemWrapper.getChild("player-anim").getEntity();
 
         mPhysicsBodyComponent = physicsMapper.get(item);
+        TransformComponent transformComponent = transformMapper.get(item);
+        SceneOne sceneOne = SceneOne.getInstance();
+        Body body = mPhysicsBodyComponent.body;
+        body.setTransform(sceneOne.x,sceneOne.y+1f,0);
+        sceneOne.pause=0;
     }
 
     @Override
@@ -60,6 +65,7 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && sceneOne.light==0) {
             movePlayer(RIGHT);
         }
+
     }
 
     public void movePlayer(int direction) {
@@ -69,13 +75,14 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
 
         switch (direction) {
             case LEFT:
-                impulse.set(-100, speed.y);
+                impulse.set(-60, speed.y);
                 break;
             case RIGHT:
-                impulse.set(100, speed.y);
+                impulse.set(60, speed.y);
                 break;
         }
         body.applyLinearImpulse(impulse.sub(speed), body.getWorldCenter(), true);
+
     }
 
 
