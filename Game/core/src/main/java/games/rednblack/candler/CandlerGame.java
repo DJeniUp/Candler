@@ -82,11 +82,11 @@ public class CandlerGame extends ApplicationAdapter {
         mEngine = mSceneLoader.getEngine();
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(60, 32, mCamera);
-        mSceneLoader.loadScene("MainMenu", mViewport);
+        mSceneLoader.loadScene("PauseMenu", mViewport);
         //mSceneLoader.loadScene("MainMenu", mViewport);
 
         root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
-        ItemWrapper playButton = root.getChild("PlayButton");
+        ItemWrapper playButton = root.getChild("ContinueButton");
         ItemWrapper exitGameButton = root.getChild("ExitButton");
 
         ComponentRetriever.create(exitGameButton.getEntity(), ButtonComponent.class, mEngine);
@@ -234,85 +234,8 @@ public class CandlerGame extends ApplicationAdapter {
 
     }
 
-    private void initializePauseMenu() {
-        skin = new Skin();
 
-        // Добавление стандартного шрифта
-        BitmapFont defaultFont = new BitmapFont();
-        skin.add("default-font", defaultFont);
 
-        // Настройка цветов
-        skin.add("white", new Color(1, 1, 1, 1));
-        skin.add("blue", new Color(0, 0, 1, 1));
-
-        // Настройка стилей
-        skin.load(Gdx.files.internal("ui/uiskin.json"));
-
-        // Создание окна паузы
-        pauseMenu = new Window("Pause Menu", skin);
-
-        // Создание кнопок
-        Button saveButton = new Button(skin, "default");
-        Button exitGameButton = new Button(skin, "default");
-        Button continueButton = new Button(skin, "default");
-
-        saveButton.addListener(event -> {
-            if (event.isHandled()) {
-                // Код для сохранения игры
-                System.out.println("Game Saved");
-            }
-            return true;
-        });
-
-        exitGameButton.addListener(event -> {
-            if (event.isHandled()) {
-                // Код для выхода из игры
-                Gdx.app.exit();
-            }
-            return true;
-        });
-
-        continueButton.addListener(event -> {
-            if (event.isHandled()) {
-                // Код для продолжения игры
-                pauseMenu.remove();
-            }
-            return true;
-        });
-
-        // Добавление кнопок в меню паузы
-        pauseMenu.add(saveButton).row();
-        pauseMenu.add(exitGameButton).row();
-        pauseMenu.add(continueButton).row();
-
-        // Установка размера и позиции окна паузы
-        pauseMenu.setSize(300, 200);
-        pauseMenu.setPosition(
-            (mViewport.getWorldWidth() - pauseMenu.getWidth()) / 2,
-            (mViewport.getWorldHeight() - pauseMenu.getHeight()) / 2
-        );
-
-        // Добавление окна паузы на сцену
-        stage.addActor(pauseMenu);
-    }
-    private void saveGame() {
-        //GameData data = new GameData(100, 1, 50.0f, 100.0f); // Пример данных
-        //GameSaver.saveGame(data);
-        System.out.println("Game saved!");
-    }
-
-    private void exitGame() {
-        // Код для выхода из игры
-        Gdx.app.exit();
-    }
-
-    private void resumeGame() {
-        pauseMenu.setVisible(false);
-    }
-
-    private void togglePauseMenu() {
-        pauseMenu.setVisible(!pauseMenu.isVisible());
-    }
 
 
     @Override
