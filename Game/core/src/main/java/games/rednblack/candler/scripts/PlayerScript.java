@@ -75,7 +75,6 @@ public class PlayerScript extends BasicScript implements PhysicsContact {
                 impulse.set(100, speed.y);
                 break;
         }
-
         body.applyLinearImpulse(impulse.sub(speed), body.getWorldCenter(), true);
     }
 

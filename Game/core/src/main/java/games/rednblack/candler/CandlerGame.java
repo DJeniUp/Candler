@@ -19,11 +19,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 //import com.badlogic.gdx.video.VideoPlayer;
 //import com.badlogic.gdx.video.VideoPlayerCreator;
 import games.rednblack.candler.Managers.LabelManager;
-import games.rednblack.candler.components.ExitButtonComponent;
-import games.rednblack.candler.components.PlayButtonComponent;
+import games.rednblack.candler.components.*;
 import games.rednblack.candler.system.*;
-import games.rednblack.candler.components.LighterComponent;
-import games.rednblack.candler.components.PlayerComponent;
 import games.rednblack.candler.scripts.PlayerScript;
 import games.rednblack.editor.renderer.SceneConfiguration;
 import games.rednblack.editor.renderer.SceneLoader;
@@ -82,16 +79,15 @@ public class CandlerGame extends ApplicationAdapter {
         mEngine = mSceneLoader.getEngine();
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(60, 32, mCamera);
-        mSceneLoader.loadScene("PauseMenu", mViewport);
+        mSceneLoader.loadScene("MainMenu", mViewport);
         //mSceneLoader.loadScene("MainMenu", mViewport);
 
         root = new ItemWrapper(mSceneLoader.getRoot(), mEngine);
-        ItemWrapper playButton = root.getChild("ContinueButton");
+        ItemWrapper playButton = root.getChild("PlayButton");
         ItemWrapper exitGameButton = root.getChild("ExitButton");
 
         ComponentRetriever.create(exitGameButton.getEntity(), ButtonComponent.class, mEngine);
         ComponentRetriever.create(playButton.getEntity(), ButtonComponent.class, mEngine);
-        //mSceneLoader.addComponentByTagName("Button", ButtonComponent.class);
         ButtonComponent exitButtonComponent = exitGameButton.getComponent(ButtonComponent.class);
         ButtonComponent playButtonComponent = playButton.getComponent(ButtonComponent.class);
 
@@ -125,15 +121,10 @@ public class CandlerGame extends ApplicationAdapter {
             @Override
             public void clicked(int i) {
                 System.out.println("Start");
-
-                //playVideo();
                 startGame();
-                //else if(i== exitButton.getEntity())Gdx.app.exit();
             }
         });
 
-        //ComponentRetriever.create(exitButton.getEntity(), ButtonComponent.class, mEngine);
-        //ButtonComponent exitButtonComponent = exitButton.getComponent(ButtonComponent.class);
 
     }
     /*public void playVideo(){
@@ -148,14 +139,6 @@ public class CandlerGame extends ApplicationAdapter {
         //startGame();
     }*/
     public void startGame(){
-        /*backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("backgroundMusic.mp3"));
-        backgroundMusic.setLooping(true);
-        backgroundMusic.play();
-
-        //setScreen(new MainMenuScreen(this));
-        atlas=new TextureAtlas(Gdx.files.internal("orig/pack.atlas"));
-        candler = new Candler(atlas);
-        batch = new SpriteBatch();*/
 
         Graphics.DisplayMode displayMode = Gdx.graphics.getDisplayMode();
         Gdx.graphics.setFullscreenMode(displayMode);
@@ -182,6 +165,8 @@ public class CandlerGame extends ApplicationAdapter {
         config.setResourceRetriever(mAsyncResourceManager);
         CameraSystem cameraSystem = new CameraSystem();
         config.addSystem(cameraSystem);
+        PauseMenuSystem pauseMenuSystem = new PauseMenuSystem();
+        config.addSystem(pauseMenuSystem);
 
 
         config.addSystem(new PlayerAnimSystem());
@@ -195,6 +180,7 @@ public class CandlerGame extends ApplicationAdapter {
 
         ComponentRetriever.addMapper(PlayerComponent.class);
         ComponentRetriever.addMapper(LighterComponent.class);
+        ComponentRetriever.addMapper(PauseMenuComponent.class);
 
         mCamera = new OrthographicCamera();
         mViewport = new ExtendViewport(60, 32, mCamera);
@@ -207,11 +193,14 @@ public class CandlerGame extends ApplicationAdapter {
         //mSentenceMechanic.create(batch);
 
         ItemWrapper player = root.getChild("player");
+        ItemWrapper pauseMenu = root.getChild("PauseMenu");
         ComponentRetriever.create(player.getChild("player-anim").getEntity(), PlayerComponent.class, mEngine);
+        ComponentRetriever.create(pauseMenu.getEntity(), PauseMenuComponent.class, mEngine);
         //ItemWrapper lighter1=root.getChild("lighter1");
         //ComponentRetriever.create(lighter1.getChild("lighter1-anim").getEntity(), Lighter1Component.class, mEngine);
         PlayerScript playerScript = new PlayerScript();
         player.addScript(playerScript);
+        pauseMenuSystem.setFocus(player.getEntity());
         cameraSystem.setFocus(player.getEntity());
         //labelSystem.setFocus(mCamera.);
         //cameraSystem.setFocus(root.getChild("Text1").getEntity());
