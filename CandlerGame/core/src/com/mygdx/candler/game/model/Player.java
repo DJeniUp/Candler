@@ -7,9 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
-import com.mygdx.candler.game.model.sentence.TyperArtist;
+import com.mygdx.candler.game.view.TyperArtist;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;

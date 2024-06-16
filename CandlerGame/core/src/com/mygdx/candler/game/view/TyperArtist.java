@@ -1,4 +1,4 @@
-package com.mygdx.candler.game.model.sentence;
+package com.mygdx.candler.game.view;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
@@ -6,6 +6,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Manager;
 import com.mygdx.candler.game.model.TypingProcessor;
+import com.mygdx.candler.game.model.sentence.SentenceDrawer;
+import com.mygdx.candler.game.model.sentence.Timer;
+
 import java.io.FileReader;
 import java.util.ArrayList;
 

@@ -1,13 +1,11 @@
 package com.mygdx.candler.game.view;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.candler.game.Config;
 import com.mygdx.candler.game.controller.Locations;
 import com.mygdx.candler.game.controller.Manager;
-import com.mygdx.candler.game.model.sentence.TyperArtist;
 
 import java.io.*;
 
